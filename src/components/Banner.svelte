@@ -1,5 +1,4 @@
 <script>
-    import { goto } from "$app/navigation";
     import { fade } from 'svelte/transition';
     import { onMount } from 'svelte';
 
@@ -31,7 +30,7 @@
 
         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <button on:click={togglePopup} class="w-full sm:w-auto bg-cBlack text-white px-6 py-2">Contact</button>
-            <button on:click={() => goto("https://read.cv/queaxtra")} class="w-full sm:w-auto border border-cGray px-6 py-2">Download CV</button>
+            <a href="https://read.cv/queaxtra" class="w-full sm:w-auto border border-cGray px-6 py-2">Download CV</a>
         </div>
     </div>
 </section>
