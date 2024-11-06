@@ -2,8 +2,8 @@
     let contactInfo = [
         {
             type: "Email",
-            value: "queaxtra@proton.me",
-            href: "mailto:queaxtra@proton.me"
+            value: "fatih@etik.com",
+            href: "mailto:fatih@etik.com"
         },
         {
             type: "X (Twitter)",
