@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import * as Card from "$lib/components/ui/card";
+    import { Skeleton } from "$lib/components/ui/skeleton/index.js";
 
     let posts: any[] = [];
     let loading = true;
@@ -19,7 +20,7 @@
     }
 </script>
 
-<section class="w-full my-8">
+<section class="w-full my-12">
     <div class="w-full max-w-6xl mx-auto px-4 md:px-0">
         <div class="space-y-4">
             <div class="flex justify-between items-center">
@@ -30,18 +31,30 @@
             </div>
 
             {#if loading}
-                <p class="opacity-50">Loading posts...</p>
+                <div class="grid grid-cols-1 gap-4">
+                    {#each Array(5) as _}
+                        <Card.Root class="cursor-pointer">
+                            <Card.Header>
+                                <Skeleton class="h-6 w-full" />
+                            </Card.Header>
+                            <Card.Footer class="text-sm opacity-50">
+                                <Skeleton class="h-4 w-24" />
+                            </Card.Footer>
+                        </Card.Root>
+                    {/each}
+                </div>
             {:else if posts.length === 0}
                 <p class="opacity-50">No posts available.</p>
             {:else}
                 <div class="grid grid-cols-1 gap-4">
-                    {#each posts.slice(0, 6) as post}
+                    {#each posts.slice(0, 5) as post}
                         <Card.Root onclick={() => goto(`https://hackmd.io/@queaxtra/${post.id}`)} class="cursor-pointer">
                             <Card.Header>
                                 <Card.Title>{post.title}</Card.Title>
                             </Card.Header>
-                            <Card.Footer class="text-sm opacity-50">
-                                {new Intl.DateTimeFormat().format(new Date(post.publishedAt))}
+                            <Card.Footer class="text-sm opacity-50 flex justify-between">
+                                <span>{new Intl.DateTimeFormat().format(new Date(post.publishedAt))}</span>
+                                <span>{post.viewCount.toLocaleString()} views</span>
                             </Card.Footer>
                         </Card.Root>
                     {/each}

@@ -4,6 +4,7 @@
     import { onMount } from "svelte";
     import * as Card from "$lib/components/ui/card";
     import Button from "$lib/components/ui/button/button.svelte";
+    import { Skeleton } from "$lib/components/ui/skeleton/index.js";
 
     let posts: any[] = [];
     let loading = true;
@@ -52,7 +53,23 @@
                 </div>
 
                 {#if loading}
-                    <p class="opacity-50">Loading posts...</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        {#each Array(5) as _}
+                            <Card.Root class="cursor-pointer">
+                                <Card.Header>
+                                    <Skeleton class="h-6 w-full" />
+                                </Card.Header>
+                                <Card.Footer class="text-sm opacity-50">
+                                    <Skeleton class="h-4 w-24" />
+                                </Card.Footer>
+                            </Card.Root>
+                        {/each}
+                    </div>
+
+                    <div class="flex justify-between mt-4">
+                        <Skeleton class="h-10 w-32" />
+                        <Skeleton class="h-10 w-32" />
+                    </div>
                 {:else if posts.length === 0}
                     <p class="opacity-50">No posts available.</p>
                 {:else}
@@ -62,12 +79,14 @@
                                 <Card.Header>
                                     <Card.Title>{post.title}</Card.Title>
                                 </Card.Header>
-                                <Card.Footer class="text-sm opacity-50">
-                                    {new Intl.DateTimeFormat().format(new Date(post.publishedAt))}
+                                <Card.Footer class="text-sm opacity-50 flex justify-between">
+                                    <span>{new Intl.DateTimeFormat().format(new Date(post.publishedAt))}</span>
+                                    <span>{post.viewCount.toLocaleString()} views</span>
                                 </Card.Footer>
                             </Card.Root>
                         {/each}
                     </div>
+
                     {#if posts.length > postsPerPage}
                         <div class="flex justify-between mt-4">
                             <Button onclick={previousPage} disabled={currentPage === 1}>Previous</Button>

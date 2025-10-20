@@ -27,7 +27,7 @@
     ]
 </script>
 
-<section class="w-full my-8">
+<section class="w-full my-12">
     <div class="w-full max-w-6xl mx-auto px-4 md:px-0">
         <div class="space-y-4">
             <h1 class="text-xl md:text-2xl font-bold">~/contact</h1>
