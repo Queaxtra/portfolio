@@ -21,14 +21,14 @@
             title: "Telegram"
         },
         {
-            href: "mailto:fatih@etik.com",
+            href: "mailto:hi@fatih.live",
             title: "Email"
         }
     ]
 </script>
 
-<section class="w-full my-12">
-    <div class="w-full max-w-6xl mx-auto px-4 md:px-0">
+<section class="w-full">
+    <div class="w-full max-w-6xl mx-auto py-6">
         <div class="space-y-4">
             <h1 class="text-xl md:text-2xl font-bold">~/contact</h1>
             <div class="flex flex-wrap items-center">
@@ -41,4 +41,9 @@
             </div>
         </div>
     </div>
+
+    <!-- dashed border -->
+    <section class="border-y border-border/50">
+        <div class="h-1.5 w-full dashed-border"></div>
+    </section>
 </section>

@@ -12,7 +12,7 @@
 					"bg-destructive hover:bg-destructive/90 dark:bg-destructive/60 text-white",
 				outline:
 					"bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 border",
-				secondary: "bg-white border text-secondary-foreground hover:bg-secondary/50",
+				secondary: "bg-white border text-secondary-foreground dark:text-black",
 				ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
 				link: "text-primary underline-offset-4 hover:underline",
 			},

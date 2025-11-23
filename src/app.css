@@ -111,6 +111,13 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@layer utilities {
+  .dashed-border {
+    background: repeating-linear-gradient(-45deg, var(--color-border), var(--color-border) 1px, transparent 1px, transparent 6px);
+    opacity: 0.5;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

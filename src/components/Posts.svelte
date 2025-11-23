@@ -20,13 +20,16 @@
     }
 </script>
 
-<section class="w-full my-12">
-    <div class="w-full max-w-6xl mx-auto px-4 md:px-0">
+<section class="w-full">
+    <div class="w-full max-w-6xl mx-auto py-6">
         <div class="space-y-4">
             <div class="flex justify-between items-center">
                 <h1 class="text-xl md:text-2xl font-bold">~/posts</h1>
                 {#if posts.length > 5}
-                    <a href="/posts" class="hover:underline">Sell All Posts</a>
+                    <a href="/posts" class="hover:underline opacity-20 hover:opacity-100 hover:transition-opacity text-sm flex items-center space-x-1">
+                        <span>Sell All Posts</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6z"/></svg>
+                    </a>
                 {/if}
             </div>
 
@@ -62,4 +65,9 @@
             {/if}
         </div>
     </div>
+
+    <!-- dashed border -->
+    <section class="border-y border-border/50">
+        <div class="h-1.5 w-full dashed-border"></div>
+    </section>
 </section>
