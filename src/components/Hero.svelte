@@ -9,7 +9,7 @@
             <p class="text-lg opacity-80">A teammate who lives in Türkiye, develops projects on his own, is obsessed with cryptography, and is security-conscious.</p>
 
             <div class="flex justify-center space-x-4">
-                <Button href="mailto:fatih@etik.com">Contact Me</Button>
+                <Button href="mailto:hi@fatih.live">Contact Me</Button>
             </div>
         </div>
     </div>
