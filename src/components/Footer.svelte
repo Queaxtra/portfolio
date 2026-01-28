@@ -25,7 +25,7 @@
 
 <footer class="w-full my-6">
     <div class="w-full max-w-6xl mx-auto">
-        <div class="opacity-50 text-sm flex">
+        <div class="text-black/70 dark:text-white/70 text-sm flex">
             <span>© {new Date().getFullYear()} • Fatih Yılmaz</span>
             <span class="ml-auto">{time}</span>
         </div>

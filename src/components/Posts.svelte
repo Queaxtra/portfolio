@@ -23,7 +23,7 @@
             <div class="flex justify-between items-center">
                 <h1 class="text-xl md:text-2xl font-bold">~/posts</h1>
                 {#if posts.length > 5}
-                    <a href="/posts" class="hover:underline opacity-20 hover:opacity-100 hover:transition-opacity text-sm flex items-center space-x-1">
+                    <a href="/posts" class="hover:underline text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:transition-opacity text-sm flex items-center space-x-1">
                         <span>See All Posts</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6z"/></svg>
                     </a>
@@ -41,14 +41,14 @@
                     {/each}
                 </div>
             {:else if posts.length === 0}
-                <p class="opacity-50">No posts available.</p>
+                <p class="text-black/70 dark:text-white/70">No posts available.</p>
             {:else}
                 <div class="grid grid-cols-1 gap-4">
                     {#each posts.slice(0, 5) as post}
                         <Card.Root onclick={() => goto(post.id)} class="cursor-pointer">
                             <Card.Header>
                                 <Card.Title>{post.title}</Card.Title>
-                                <Card.Description class="opacity-50">{new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</Card.Description>
+                                <Card.Description class="text-black/70 dark:text-white/70">{new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</Card.Description>
                             </Card.Header>
                         </Card.Root>
                     {/each}

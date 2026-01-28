@@ -33,7 +33,7 @@
             <h1 class="text-xl md:text-2xl font-bold">~/contact</h1>
             <div class="flex flex-wrap items-center">
                 {#each links as link, i (link.href)}
-                    <a href={link.href} class="opacity-50 hover:opacity-100">{link.title}</a>
+                    <a href={link.href} class="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white">{link.title}</a>
                     {#if i !== links.length - 1}
                         <span class="mx-2 opacity-50">・</span>
                     {/if}

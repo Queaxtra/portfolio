@@ -12,7 +12,7 @@
     <div class="w-full py-6">
         <div class="space-y-4">
             <h1 class="text-xl md:text-2xl font-bold">~/about</h1>
-            <p class="text-black/50 dark:text-white/50 leading-relaxed">
+            <p class="text-black/70 dark:text-white/70 leading-relaxed">
                 I am a {age} year-old developer based in
                 <HoverCard.Root>
                     <HoverCard.Trigger class="text-black dark:text-white underline cursor-help">Türkiye</HoverCard.Trigger>

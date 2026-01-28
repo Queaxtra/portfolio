@@ -17,9 +17,11 @@
 
 <div class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-120">
     <Navbar />
-    <Hero />
-    <About />
-    <Posts />
-    <Contact />
+    <main>
+        <Hero />
+        <About />
+        <Posts />
+        <Contact />
+    </main>
     <Footer />
 </div>
