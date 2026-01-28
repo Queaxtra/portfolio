@@ -5,6 +5,7 @@
     import * as Card from "$lib/components/ui/card";
     import Button from "$lib/components/ui/button/button.svelte";
     import { Skeleton } from "$lib/components/ui/skeleton/index.js";
+    import { Input } from "$lib/components/ui/input/index.js";
     import { fetchAllPosts, type PostMeta } from "$lib/utils/post";
 
     const pageTitle = "Blog Posts | Fatih Yılmaz";
@@ -13,9 +14,14 @@
     let posts: PostMeta[] = [];
     let loading = true;
     let currentPage = 1;
+    let searchQuery = "";
     const postsPerPage = 5;
 
-    $: paginatedPosts = posts.slice(
+    $: filteredPosts = posts.filter(post =>
+        post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    $: paginatedPosts = filteredPosts.slice(
         (currentPage - 1) * postsPerPage,
         currentPage * postsPerPage
     );
@@ -30,7 +36,7 @@
     }
 
     function nextPage() {
-        if (currentPage * postsPerPage < posts.length) {
+        if (currentPage * postsPerPage < filteredPosts.length) {
             currentPage++;
         }
     }
@@ -39,6 +45,10 @@
         if (currentPage > 1) {
             currentPage--;
         }
+    }
+
+    $: if (searchQuery) {
+        currentPage = 1;
     }
 </script>
 
@@ -61,8 +71,18 @@
     <section class="w-full my-8">
         <div class="w-full max-w-6xl mx-auto px-4 md:px-0">
             <div class="space-y-4">
-                <div class="flex justify-between items-center">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <h1 class="text-xl md:text-2xl font-bold">~/all_posts</h1>
+
+                    <div class="relative w-full sm:w-64">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256" class="absolute left-3 top-1/2 -translate-y-1/2 opacity-50"><path fill="currentColor" d="M229.66 218.34l-50.06-50.06a88.11 88.11 0 1 0-11.32 11.32l50.06 50.06a8 8 0 0 0 11.32-11.32M40 112a72 72 0 1 1 72 72a72.08 72.08 0 0 1-72-72"/></svg>
+                        <Input
+                            type="text"
+                            placeholder="Search posts..."
+                            bind:value={searchQuery}
+                            class="pl-9"
+                        />
+                    </div>
                 </div>
 
                 {#if loading}
@@ -85,6 +105,8 @@
                     </div>
                 {:else if posts.length === 0}
                     <p class="opacity-50">No posts available.</p>
+                {:else if filteredPosts.length === 0}
+                    <p class="opacity-50">No posts found for "{searchQuery}"</p>
                 {:else}
                     <div class="grid grid-cols-1 gap-4">
                         {#each paginatedPosts as post}
@@ -97,10 +119,10 @@
                         {/each}
                     </div>
 
-                    {#if posts.length > postsPerPage}
+                    {#if filteredPosts.length > postsPerPage}
                         <div class="flex justify-between mt-4">
                             <Button onclick={previousPage} disabled={currentPage === 1}>Previous</Button>
-                            <Button onclick={nextPage} disabled={currentPage * postsPerPage >= posts.length}>Next</Button>
+                            <Button onclick={nextPage} disabled={currentPage * postsPerPage >= filteredPosts.length}>Next</Button>
                         </div>
                     {/if}
                 {/if}
