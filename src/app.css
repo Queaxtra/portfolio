@@ -271,3 +271,11 @@
 .markdown-content em {
   font-style: italic;
 }
+
+.nested-page-content .markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.nested-page-content {
+  font-size: 0.95em;
+}

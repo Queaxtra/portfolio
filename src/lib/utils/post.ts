@@ -10,14 +10,17 @@ export interface ContentBlock {
   decorations?: string[];
   url?: string;
   altText?: string;
+  content?: ContentBlock[];
 }
 
 export interface RenderedBlock {
-  type: 'html' | 'image';
+  type: 'html' | 'image' | 'page';
   content?: string;
   url?: string;
   altText?: string;
   id: string;
+  title?: string;
+  children?: RenderedBlock[];
 }
 
 export interface TocItem {
@@ -92,6 +95,26 @@ export async function processContentBlocks(
     [];
 
   for (const block of blocks) {
+    if (block.type === 'page' && block.textStyle === 'page' && block.content) {
+      if (markdownBuffer.length > 0) {
+        const html = await renderMarkdownBuffer(markdownBuffer);
+        result.push({
+          type: 'html',
+          content: html,
+          id: `html-${result.length}`
+        });
+        markdownBuffer = [];
+      }
+      const children = await processContentBlocks(block.content, imageLoadingStates);
+      result.push({
+        type: 'page',
+        id: block.id,
+        title: block.markdown ?? '',
+        children
+      });
+      continue;
+    }
+
     if (block.type === 'image' && block.url) {
       if (markdownBuffer.length > 0) {
         const html = await renderMarkdownBuffer(markdownBuffer);
