@@ -6,7 +6,7 @@
     import Button from "$lib/components/ui/button/button.svelte";
     import { Skeleton } from "$lib/components/ui/skeleton/index.js";
     import { Input } from "$lib/components/ui/input/index.js";
-    import { fetchAllPosts, type PostMeta } from "$lib/utils/post";
+    import { fetchAllPosts, createPostUrl, type PostMeta } from "$lib/utils/post";
 
     const pageTitle = "Blog Posts | Fatih Yılmaz";
     const pageDescription = "Read articles about web development, front-end technologies, and creative coding by Fatih Yılmaz.";
@@ -31,8 +31,8 @@
         loading = false;
     });
 
-    function goto(id: string) {
-        window.location.href = `/post/${id}`;
+    function goto(id: string, title: string) {
+        window.location.href = createPostUrl(id, title);
     }
 
     function nextPage() {
@@ -110,7 +110,7 @@
                 {:else}
                     <div class="grid grid-cols-1 gap-4">
                         {#each paginatedPosts as post}
-                            <Card.Root onclick={() => goto(post.id)} class="cursor-pointer">
+                            <Card.Root onclick={() => goto(post.id, post.title)} class="cursor-pointer">
                                 <Card.Header>
                                     <Card.Title>{post.title}</Card.Title>
                                     <Card.Description class="opacity-50">{new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</Card.Description>

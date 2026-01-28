@@ -14,7 +14,10 @@
         extractTableOfContents,
         processContentBlocks,
         fetchPost,
-        fetchAdjacentPosts
+        fetchAdjacentPosts,
+        extractIdFromSlug,
+        generateSlug,
+        createPostUrl
     } from "$lib/utils/post";
 
     let post: Post | null = null;
@@ -238,7 +241,8 @@
     }
 
     onMount(async () => {
-        const id = $page.params.id;
+        const slugParam = $page.params.slug;
+        const id = extractIdFromSlug(slugParam) ?? slugParam;
 
         window.addEventListener("scroll", handleScroll);
 
@@ -254,6 +258,12 @@
             nextPost = adjacent.next;
             setupCodeBlockCopy();
             checkHashAndScroll();
+
+            const expectedSlug = `${generateSlug(data.markdown)}--${data.id}`;
+            if (slugParam !== expectedSlug) {
+                const hash = window.location.hash;
+                history.replaceState(null, "", `/post/${expectedSlug}${hash}`);
+            }
         }
 
         if (!data) {
@@ -445,8 +455,7 @@
                         <div class="mt-8 pt-6 border-t border-border grid grid-cols-2 gap-4">
                             {#if prevPost}
                                 <a
-                                    href="/post/{prevPost.id}"
-                                    data-sveltekit-reload
+                                    href={createPostUrl(prevPost.id, prevPost.title)}
                                     class="group p-4 border border-border rounded-lg hover:border-primary/50 transition-colors"
                                 >
                                     <span class="text-xs opacity-50 flex items-center gap-1">
@@ -463,8 +472,7 @@
 
                             {#if nextPost}
                                 <a
-                                    href="/post/{nextPost.id}"
-                                    data-sveltekit-reload
+                                    href={createPostUrl(nextPost.id, nextPost.title)}
                                     class="group p-4 border border-border rounded-lg hover:border-primary/50 transition-colors text-right"
                                 >
                                     <span class="text-xs opacity-50 flex items-center justify-end gap-1">

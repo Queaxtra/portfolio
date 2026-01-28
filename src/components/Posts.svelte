@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import * as Card from "$lib/components/ui/card";
     import { Skeleton } from "$lib/components/ui/skeleton/index.js";
-    import { fetchAllPosts, type PostMeta } from "$lib/utils/post";
+    import { fetchAllPosts, createPostUrl, type PostMeta } from "$lib/utils/post";
 
     let posts: PostMeta[] = [];
     let loading = true;
@@ -12,8 +12,8 @@
         loading = false;
     });
 
-    function goto(id: string) {
-        window.location.href = `/post/${id}`;
+    function goto(id: string, title: string) {
+        window.location.href = createPostUrl(id, title);
     }
 </script>
 
@@ -45,7 +45,7 @@
             {:else}
                 <div class="grid grid-cols-1 gap-4">
                     {#each posts.slice(0, 5) as post}
-                        <Card.Root onclick={() => goto(post.id)} class="cursor-pointer">
+                        <Card.Root onclick={() => goto(post.id, post.title)} class="cursor-pointer">
                             <Card.Header>
                                 <Card.Title>{post.title}</Card.Title>
                                 <Card.Description class="text-black/70 dark:text-white/70">{new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</Card.Description>

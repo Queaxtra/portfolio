@@ -41,6 +41,30 @@ export interface PostMeta {
   id: string;
   title: string;
   createdAt: string;
+  slug?: string;
+}
+
+export function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 80);
+}
+
+export function extractIdFromSlug(slug: string): string | null {
+  const match = slug.match(/--([A-F0-9-]{36})$/i);
+  if (match) {
+    return match[1];
+  }
+  return null;
+}
+
+export function createPostUrl(id: string, title: string): string {
+  const slug = generateSlug(title);
+  return `/post/${slug}--${id}`;
 }
 
 export function calculateReadingTime(content: ContentBlock[]): number {
@@ -68,7 +92,12 @@ export function extractTableOfContents(content: ContentBlock[]): TocItem[] {
 }
 
 export async function renderMarkdownBuffer(
-  buffer: { markdown: string; id?: string; textStyle?: string; indentationLevel?: number }[]
+  buffer: {
+    markdown: string;
+    id?: string;
+    textStyle?: string;
+    indentationLevel?: number;
+  }[]
 ): Promise<string> {
   let html = '';
   for (const item of buffer) {
@@ -96,8 +125,12 @@ export async function processContentBlocks(
   imageLoadingStates: Record<string, boolean>
 ): Promise<RenderedBlock[]> {
   const result: RenderedBlock[] = [];
-  let markdownBuffer: { markdown: string; id?: string; textStyle?: string; indentationLevel?: number }[] =
-    [];
+  let markdownBuffer: {
+    markdown: string;
+    id?: string;
+    textStyle?: string;
+    indentationLevel?: number;
+  }[] = [];
 
   for (const block of blocks) {
     if (block.type === 'page' && block.textStyle === 'page' && block.content) {
@@ -110,7 +143,10 @@ export async function processContentBlocks(
         });
         markdownBuffer = [];
       }
-      const children = await processContentBlocks(block.content, imageLoadingStates);
+      const children = await processContentBlocks(
+        block.content,
+        imageLoadingStates
+      );
       result.push({
         type: 'page',
         id: block.id,
