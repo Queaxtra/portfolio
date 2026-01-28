@@ -44,7 +44,7 @@
                     <HoverCard.Content class="w-80">
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4">
-                                <img src="https://www.upload.ee/image/18642009/k9crypt-new-rounded.png" alt="K9Crypt" class="w-16 h-16 rounded-lg" />
+                                <img src="/assets/k9crypt-new-rounded.png" alt="K9Crypt" class="w-16 h-16 rounded-lg" />
                                 <div>
                                     <h4 class="text-sm font-semibold">K9Crypt</h4>
                                     <p class="text-sm text-muted-foreground">Security & Privacy</p>

@@ -5,8 +5,12 @@
     import * as Card from "$lib/components/ui/card";
     import Button from "$lib/components/ui/button/button.svelte";
     import { Skeleton } from "$lib/components/ui/skeleton/index.js";
+    import { fetchAllPosts, type PostMeta } from "$lib/utils/post";
 
-    let posts: any[] = [];
+    const pageTitle = "Blog Posts | Fatih Yılmaz";
+    const pageDescription = "Read articles about web development, front-end technologies, and creative coding by Fatih Yılmaz.";
+
+    let posts: PostMeta[] = [];
     let loading = true;
     let currentPage = 1;
     const postsPerPage = 5;
@@ -17,16 +21,12 @@
     );
 
     onMount(async () => {
-        const response = await fetch("/api/posts/fetch/all");
-        if (response.ok) {
-            posts = await response.json();
-        }
-
+        posts = await fetchAllPosts();
         loading = false;
     });
 
-    function goto(url: string) {
-        window.open(url, "_blank");
+    function goto(id: string) {
+        window.location.href = `/post/${id}`;
     }
 
     function nextPage() {
@@ -41,6 +41,19 @@
         }
     }
 </script>
+
+<svelte:head>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="Fatih Yılmaz" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+</svelte:head>
 
 <div class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-120">
     <Navbar />
@@ -75,14 +88,11 @@
                 {:else}
                     <div class="grid grid-cols-1 gap-4">
                         {#each paginatedPosts as post}
-                            <Card.Root onclick={() => goto(`https://hackmd.io/@queaxtra/${post.id}`)} class="cursor-pointer">
+                            <Card.Root onclick={() => goto(post.id)} class="cursor-pointer">
                                 <Card.Header>
                                     <Card.Title>{post.title}</Card.Title>
+                                    <Card.Description class="opacity-50">{new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</Card.Description>
                                 </Card.Header>
-                                <Card.Footer class="text-sm opacity-50 flex justify-between">
-                                    <span>{new Intl.DateTimeFormat().format(new Date(post.publishedAt))}</span>
-                                    <span>{post.viewCount.toLocaleString()} views</span>
-                                </Card.Footer>
                             </Card.Root>
                         {/each}
                     </div>

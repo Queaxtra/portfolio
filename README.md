@@ -26,7 +26,19 @@ bun run dev
 
 ## Adding Blog Posts
 
-Blog posts are automatically added to the site through HackMD API integration. To display blog posts you create in your own HackMD account on your portfolio, simply replace the username field in the `src/routes/api/posts/fetch/all/+server.ts` file with your HackMD username. If you don't have a HackMD account yet, you can sign up for free [here](https://hackmd.io/). Alternatively, if you do not wish to use the blog feature, you can remove the `src/components/Posts.svelte`, `src/routes/api/posts/fetch/all/+server.ts`, and `src/routes/posts/+page.svelte` files from the project.
+Blog posts are fetched through Craft.do API integration. To configure:
+
+1. Create a Craft.do account at [craft.do](https://craft.do/)
+2. Create a shared link for your documents
+3. Add your Craft API key to environment variables as `VITE_APP_CRAFTKEY`
+4. Update the shared link ID in `src/routes/api/posts/fetch/all/+server.ts` and `src/routes/api/post/[id]/+server.ts`
+
+If you do not wish to use the blog feature, remove the following files:
+- `src/components/Posts.svelte`
+- `src/routes/api/posts/fetch/all/+server.ts`
+- `src/routes/api/post/[id]/+server.ts`
+- `src/routes/posts/+page.svelte`
+- `src/routes/post/[id]/+page.svelte`
 
 ## License
 
