@@ -68,7 +68,7 @@ export function extractTableOfContents(content: ContentBlock[]): TocItem[] {
 }
 
 export async function renderMarkdownBuffer(
-  buffer: { markdown: string; id?: string; textStyle?: string }[]
+  buffer: { markdown: string; id?: string; textStyle?: string; indentationLevel?: number }[]
 ): Promise<string> {
   let html = '';
   for (const item of buffer) {
@@ -81,6 +81,11 @@ export async function renderMarkdownBuffer(
       );
     }
 
+    if (item.indentationLevel && item.indentationLevel > 0) {
+      const paddingLeft = item.indentationLevel * 1.5;
+      blockHtml = `<div style="padding-left: ${paddingLeft}rem">${blockHtml}</div>`;
+    }
+
     html += blockHtml;
   }
   return html;
@@ -91,7 +96,7 @@ export async function processContentBlocks(
   imageLoadingStates: Record<string, boolean>
 ): Promise<RenderedBlock[]> {
   const result: RenderedBlock[] = [];
-  let markdownBuffer: { markdown: string; id?: string; textStyle?: string }[] =
+  let markdownBuffer: { markdown: string; id?: string; textStyle?: string; indentationLevel?: number }[] =
     [];
 
   for (const block of blocks) {
@@ -139,7 +144,8 @@ export async function processContentBlocks(
       markdownBuffer.push({
         markdown: block.markdown,
         id: block.id,
-        textStyle: block.textStyle
+        textStyle: block.textStyle,
+        indentationLevel: block.indentationLevel
       });
     }
   }
