@@ -241,7 +241,7 @@
     }
 
     onMount(async () => {
-        const slugParam = $page.params.slug;
+        const slugParam = $page.params.slug || "";
         const id = extractIdFromSlug(slugParam) ?? slugParam;
 
         window.addEventListener("scroll", handleScroll);
