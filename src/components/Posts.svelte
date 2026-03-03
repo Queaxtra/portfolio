@@ -8,7 +8,8 @@
     let loading = true;
 
     onMount(async () => {
-        posts = await fetchAllPosts();
+        const all = await fetchAllPosts();
+        posts = all.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         loading = false;
     });
 
@@ -25,7 +26,7 @@
                 {#if posts.length > 5}
                     <a href="/posts" class="hover:underline text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:transition-opacity text-sm flex items-center space-x-1">
                         <span>See All Posts</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6z"/></svg>
+                        <i class="ph ph-caret-right text-[15px]" aria-hidden="true"></i>
                     </a>
                 {/if}
             </div>

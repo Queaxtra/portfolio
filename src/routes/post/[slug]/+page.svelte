@@ -189,15 +189,15 @@
 
                 const button = document.createElement("button");
                 button.className = "code-copy-btn absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded bg-muted hover:bg-muted/80";
-                button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="M184 64H40a8 8 0 0 0-8 8v144a8 8 0 0 0 8 8h144a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8m-8 144H48V80h128Zm48-168v144a8 8 0 0 1-16 0V48H72a8 8 0 0 1 0-16h144a8 8 0 0 1 8 8"/></svg>`;
+                button.innerHTML = `<i class="ph ph-copy" style="font-size:14px"></i>`;
                 button.title = "Copy code";
 
                 button.addEventListener("click", async () => {
                     const code = block.querySelector("code")?.textContent ?? "";
                     await navigator.clipboard.writeText(code);
-                    button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></svg>`;
+                    button.innerHTML = `<i class="ph ph-check" style="font-size:14px"></i>`;
                     setTimeout(() => {
-                        button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="M184 64H40a8 8 0 0 0-8 8v144a8 8 0 0 0 8 8h144a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8m-8 144H48V80h128Zm48-168v144a8 8 0 0 1-16 0V48H72a8 8 0 0 1 0-16h144a8 8 0 0 1 8 8"/></svg>`;
+                        button.innerHTML = `<i class="ph ph-copy" style="font-size:14px"></i>`;
                     }, 2000);
                 });
 
@@ -225,14 +225,14 @@
             const button = document.createElement("button");
             button.className = "heading-link-btn opacity-30 md:opacity-0 md:group-hover/heading:opacity-50 hover:!opacity-100 transition-opacity flex-shrink-0";
             button.title = "Copy link";
-            button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M240 88.23a54.43 54.43 0 0 1-16 37L189.25 160a54.27 54.27 0 0 1-38.63 16h-.05a54.63 54.63 0 0 1-38.62-16a8 8 0 0 1 11.32-11.32a38.65 38.65 0 0 0 54.66 0l34.68-34.67a38.59 38.59 0 0 0 0-54.66a38.65 38.65 0 0 0-54.66 0L139.56 78a8 8 0 0 1-11.31-11.31l18.38-18.39A54.86 54.86 0 0 1 185.25 32h.05A54.65 54.65 0 0 1 224 48a54.86 54.86 0 0 1 16 40.23M143.76 189.41l-18.39 18.38a38.65 38.65 0 0 1-54.66 0a38.59 38.59 0 0 1 0-54.66l34.68-34.67a38.65 38.65 0 0 1 54.66 0a8 8 0 0 0 11.32-11.32a54.63 54.63 0 0 0-38.62-16h-.05a54.27 54.27 0 0 0-38.63 16l-34.68 34.72a54.86 54.86 0 0 0-16 40.18a54.65 54.65 0 0 0 16.06 38.62a54.86 54.86 0 0 0 38.62 16.06h.05a54.65 54.65 0 0 0 38.57-16.06l18.39-18.38a8 8 0 0 0-11.32-11.32Z"/></svg>`;
+            button.innerHTML = `<i class="ph ph-link" style="font-size:16px"></i>`;
 
             button.addEventListener("click", async () => {
                 const url = `${window.location.origin}${window.location.pathname}#heading-${id}`;
                 await navigator.clipboard.writeText(url);
-                button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></svg>`;
+                button.innerHTML = `<i class="ph ph-check" style="font-size:16px"></i>`;
                 setTimeout(() => {
-                    button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M240 88.23a54.43 54.43 0 0 1-16 37L189.25 160a54.27 54.27 0 0 1-38.63 16h-.05a54.63 54.63 0 0 1-38.62-16a8 8 0 0 1 11.32-11.32a38.65 38.65 0 0 0 54.66 0l34.68-34.67a38.59 38.59 0 0 0 0-54.66a38.65 38.65 0 0 0-54.66 0L139.56 78a8 8 0 0 1-11.31-11.31l18.38-18.39A54.86 54.86 0 0 1 185.25 32h.05A54.65 54.65 0 0 1 224 48a54.86 54.86 0 0 1 16 40.23M143.76 189.41l-18.39 18.38a38.65 38.65 0 0 1-54.66 0a38.59 38.59 0 0 1 0-54.66l34.68-34.67a38.65 38.65 0 0 1 54.66 0a8 8 0 0 0 11.32-11.32a54.63 54.63 0 0 0-38.62-16h-.05a54.27 54.27 0 0 0-38.63 16l-34.68 34.72a54.86 54.86 0 0 0-16 40.18a54.65 54.65 0 0 0 16.06 38.62a54.86 54.86 0 0 0 38.62 16.06h.05a54.65 54.65 0 0 0 38.57-16.06l18.39-18.38a8 8 0 0 0-11.32-11.32Z"/></svg>`;
+                    button.innerHTML = `<i class="ph ph-link" style="font-size:16px"></i>`;
                 }, 2000);
             });
 
@@ -325,7 +325,7 @@
 
                         <div class="flex items-center gap-4 text-sm opacity-50">
                             <span class="flex items-center gap-1.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88m64-88a8 8 0 0 1-8 8h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 8 8"/></svg>
+                                <i class="ph ph-clock text-[14px]" aria-hidden="true"></i>
                                 {readingTime} min read
                             </span>
                         </div>
@@ -338,19 +338,13 @@
                                 class="w-full flex items-center justify-between p-4 text-sm font-medium"
                             >
                                 <span class="flex items-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8M40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16m176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16"/></svg>
+                                    <i class="ph ph-list text-base" aria-hidden="true"></i>
                                     Table of Contents
                                 </span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 256 256"
-                                    class="transition-transform"
-                                    class:rotate-180={tocOpen}
-                                >
-                                    <path fill="currentColor" d="m213.66 101.66l-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32"/>
-                                </svg>
+                                <i
+                                    class="ph ph-caret-down text-base transition-transform {tocOpen ? 'rotate-180' : ''}"
+                                    aria-hidden="true"
+                                ></i>
                             </button>
 
                             {#if tocOpen}
@@ -375,9 +369,10 @@
                                                 title="Copy link"
                                             >
                                                 {#if linkCopiedId === item.id}
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></svg>
-                                                {:else}
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="M240 88.23a54.43 54.43 0 0 1-16 37L189.25 160a54.27 54.27 0 0 1-38.63 16h-.05a54.63 54.63 0 0 1-38.62-16a8 8 0 0 1 11.32-11.32a38.65 38.65 0 0 0 54.66 0l34.68-34.67a38.59 38.59 0 0 0 0-54.66a38.65 38.65 0 0 0-54.66 0L139.56 78a8 8 0 0 1-11.31-11.31l18.38-18.39A54.86 54.86 0 0 1 185.25 32h.05A54.65 54.65 0 0 1 224 48a54.86 54.86 0 0 1 16 40.23M143.76 189.41l-18.39 18.38a38.65 38.65 0 0 1-54.66 0a38.59 38.59 0 0 1 0-54.66l34.68-34.67a38.65 38.65 0 0 1 54.66 0a8 8 0 0 0 11.32-11.32a54.63 54.63 0 0 0-38.62-16h-.05a54.27 54.27 0 0 0-38.63 16l-34.68 34.72a54.86 54.86 0 0 0-16 40.18a54.65 54.65 0 0 0 16.06 38.62a54.86 54.86 0 0 0 38.62 16.06h.05a54.65 54.65 0 0 0 38.57-16.06l18.39-18.38a8 8 0 0 0-11.32-11.32Z"/></svg>
+                                                    <i class="ph ph-check text-[14px]" aria-hidden="true"></i>
+                                                {/if}
+                                                {#if linkCopiedId !== item.id}
+                                                    <i class="ph ph-link text-[14px]" aria-hidden="true"></i>
                                                 {/if}
                                             </button>
                                         </div>
@@ -411,16 +406,10 @@
                                         on:click={() => togglePage(block.id)}
                                         class="w-full flex items-center gap-3 p-4 border border-border hover:border-primary/30 transition-colors text-left"
                                     >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="18"
-                                            height="18"
-                                            viewBox="0 0 256 256"
-                                            class="shrink-0 opacity-50 transition-transform duration-200"
-                                            class:rotate-90={expandedPages[block.id]}
-                                        >
-                                            <path fill="currentColor" d="m181.66 133.66l-80 80a8 8 0 0 1-11.32-11.32L164.69 128L90.34 53.66a8 8 0 0 1 11.32-11.32l80 80a8 8 0 0 1 0 11.32"/>
-                                        </svg>
+                                        <i
+                                            class="ph ph-caret-right shrink-0 text-[18px] opacity-50 transition-transform duration-200 {expandedPages[block.id] ? 'rotate-90' : ''}"
+                                            aria-hidden="true"
+                                        ></i>
                                         <span class="font-medium">{block.title}</span>
                                     </button>
                                     {#if expandedPages[block.id]}
@@ -459,7 +448,7 @@
                                     class="group p-4 border border-border rounded-lg hover:border-primary/50 transition-colors"
                                 >
                                     <span class="text-xs opacity-50 flex items-center gap-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8H59.31l58.35 58.34a8 8 0 0 1-11.32 11.32l-72-72a8 8 0 0 1 0-11.32l72-72a8 8 0 0 1 11.32 11.32L59.31 120H216a8 8 0 0 1 8 8"/></svg>
+                                        <i class="ph ph-arrow-left text-xs" aria-hidden="true"></i>
                                         Previous
                                     </span>
                                     <span class="block mt-1 text-sm font-medium group-hover:text-primary transition-colors line-clamp-2">
@@ -477,7 +466,7 @@
                                 >
                                     <span class="text-xs opacity-50 flex items-center justify-end gap-1">
                                         Next
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 256 256"><path fill="currentColor" d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32"/></svg>
+                                        <i class="ph ph-arrow-right text-xs" aria-hidden="true"></i>
                                     </span>
                                     <span class="block mt-1 text-sm font-medium group-hover:text-primary transition-colors line-clamp-2">
                                         {nextPost.title}
@@ -494,19 +483,20 @@
 
                         <div class="flex items-center gap-3">
                             <a href="/rss.xml" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100" title="RSS Feed">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M106.91,149.09A71.53,71.53,0,0,1,128,200a8,8,0,0,1-16,0,56,56,0,0,0-56-56,8,8,0,0,1,0-16A71.53,71.53,0,0,1,106.91,149.09ZM56,80a8,8,0,0,0,0,16A104,104,0,0,1,160,200a8,8,0,0,0,16,0A120,120,0,0,0,56,80Zm118.79,1.21A166.9,166.9,0,0,0,56,32a8,8,0,0,0,0,16A151,151,0,0,1,163.48,92.52,151,151,0,0,1,208,200a8,8,0,0,0,16,0A166.9,166.9,0,0,0,174.79,81.21ZM60,184a12,12,0,1,0,12,12A12,12,0,0,0,60,184Z"/></svg>
+                                <i class="ph ph-rss text-base" aria-hidden="true"></i>
                             </a>
                             <button on:click={shareOnTwitter} class="opacity-50 hover:opacity-100" title="Share on X">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"/></svg>
+                                <i class="ph ph-x-logo text-base" aria-hidden="true"></i>
                             </button>
                             <button on:click={shareOnLinkedIn} class="opacity-50 hover:opacity-100" title="Share on LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></svg>
+                                <i class="ph ph-linkedin-logo text-base" aria-hidden="true"></i>
                             </button>
                             <button on:click={copyLink} class="opacity-50 hover:opacity-100" title="Copy link">
                                 {#if copied}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></svg>
-                                {:else}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M237.66,106.35l-80-80A8,8,0,0,0,144,32V72.35c-25.94,2.22-54.59,14.92-78.16,34.91-28.38,24.08-46.05,55.11-49.76,87.37a12,12,0,0,0,20.68,9.58h0c11-11.71,50.14-48.74,107.24-52V192a8,8,0,0,0,13.66,5.65l80-80A8,8,0,0,0,237.66,106.35ZM160,172.69V144a8,8,0,0,0-8-8c-28.08,0-55.43,7.33-81.29,21.8a196.17,196.17,0,0,0-36.57,26.52c5.8-23.84,20.42-46.51,42.05-64.86C99.41,99.77,127.75,88,152,88a8,8,0,0,0,8-8V51.32L220.69,112Z"/></svg>
+                                    <i class="ph ph-check text-base" aria-hidden="true"></i>
+                                {/if}
+                                {#if !copied}
+                                    <i class="ph ph-link text-base" aria-hidden="true"></i>
                                 {/if}
                             </button>
                         </div>
@@ -525,7 +515,7 @@
         class="fixed bottom-6 right-6 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-all z-40"
         title="Scroll to top"
     >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 152.49a12 12 0 0 1-17 0L128 89l-63.51 63.49a12 12 0 0 1-17-17l72-72a12 12 0 0 1 17 0l72 72a12 12 0 0 1 0 17"/></svg>
+        <i class="ph ph-caret-up text-xl" aria-hidden="true"></i>
     </button>
 {/if}
 
@@ -533,7 +523,7 @@
     <div class="fixed top-20 right-8 w-56 hidden xl:block z-40">
         <div class="border border-border rounded-lg bg-background/95 backdrop-blur-sm p-4">
             <span class="flex items-center gap-2 text-sm font-medium mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8M40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16m176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16"/></svg>
+                <i class="ph ph-list text-base" aria-hidden="true"></i>
                 Table of Contents
             </span>
             <div class="space-y-1">
@@ -559,9 +549,10 @@
                             title="Copy link"
                         >
                             {#if linkCopiedId === item.id}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 256 256"><path fill="currentColor" d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></svg>
-                            {:else}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 256 256"><path fill="currentColor" d="M240 88.23a54.43 54.43 0 0 1-16 37L189.25 160a54.27 54.27 0 0 1-38.63 16h-.05a54.63 54.63 0 0 1-38.62-16a8 8 0 0 1 11.32-11.32a38.65 38.65 0 0 0 54.66 0l34.68-34.67a38.59 38.59 0 0 0 0-54.66a38.65 38.65 0 0 0-54.66 0L139.56 78a8 8 0 0 1-11.31-11.31l18.38-18.39A54.86 54.86 0 0 1 185.25 32h.05A54.65 54.65 0 0 1 224 48a54.86 54.86 0 0 1 16 40.23M143.76 189.41l-18.39 18.38a38.65 38.65 0 0 1-54.66 0a38.59 38.59 0 0 1 0-54.66l34.68-34.67a38.65 38.65 0 0 1 54.66 0a8 8 0 0 0 11.32-11.32a54.63 54.63 0 0 0-38.62-16h-.05a54.27 54.27 0 0 0-38.63 16l-34.68 34.72a54.86 54.86 0 0 0-16 40.18a54.65 54.65 0 0 0 16.06 38.62a54.86 54.86 0 0 0 38.62 16.06h.05a54.65 54.65 0 0 0 38.57-16.06l18.39-18.38a8 8 0 0 0-11.32-11.32Z"/></svg>
+                                <i class="ph ph-check text-xs" aria-hidden="true"></i>
+                            {/if}
+                            {#if linkCopiedId !== item.id}
+                                <i class="ph ph-link text-xs" aria-hidden="true"></i>
                             {/if}
                         </button>
                     </div>
@@ -575,7 +566,7 @@
         class="fixed bottom-6 left-6 p-3 bg-muted text-foreground rounded-full shadow-lg hover:bg-muted/80 transition-all z-40 xl:hidden"
         title="Table of Contents"
     >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8M40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16m176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16"/></svg>
+        <i class="ph ph-list text-xl" aria-hidden="true"></i>
     </button>
 {/if}
 
@@ -590,12 +581,12 @@
         <div class="absolute bottom-0 left-0 right-0 bg-background border-t border-border p-6 max-h-[60vh] overflow-y-auto">
             <div class="flex items-center justify-between mb-4">
                 <span class="flex items-center gap-2 text-sm font-medium">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8M40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16m176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16"/></svg>
+                    <i class="ph ph-list text-base" aria-hidden="true"></i>
                     Table of Contents
                 </span>
                 <!-- svelte-ignore a11y_consider_explicit_label -->
                 <button on:click={() => mobileTocOpen = false} class="p-1 opacity-50 hover:opacity-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128L50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128Z"/></svg>
+                    <i class="ph ph-x text-xl" aria-hidden="true"></i>
                 </button>
             </div>
 
@@ -622,9 +613,10 @@
                             title="Copy link"
                         >
                             {#if linkCopiedId === item.id}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="m229.66 77.66l-128 128a8 8 0 0 1-11.32 0l-56-56a8 8 0 0 1 11.32-11.32L96 188.69L218.34 66.34a8 8 0 0 1 11.32 11.32"/></svg>
-                            {:else}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256"><path fill="currentColor" d="M240 88.23a54.43 54.43 0 0 1-16 37L189.25 160a54.27 54.27 0 0 1-38.63 16h-.05a54.63 54.63 0 0 1-38.62-16a8 8 0 0 1 11.32-11.32a38.65 38.65 0 0 0 54.66 0l34.68-34.67a38.59 38.59 0 0 0 0-54.66a38.65 38.65 0 0 0-54.66 0L139.56 78a8 8 0 0 1-11.31-11.31l18.38-18.39A54.86 54.86 0 0 1 185.25 32h.05A54.65 54.65 0 0 1 224 48a54.86 54.86 0 0 1 16 40.23M143.76 189.41l-18.39 18.38a38.65 38.65 0 0 1-54.66 0a38.59 38.59 0 0 1 0-54.66l34.68-34.67a38.65 38.65 0 0 1 54.66 0a8 8 0 0 0 11.32-11.32a54.63 54.63 0 0 0-38.62-16h-.05a54.27 54.27 0 0 0-38.63 16l-34.68 34.72a54.86 54.86 0 0 0-16 40.18a54.65 54.65 0 0 0 16.06 38.62a54.86 54.86 0 0 0 38.62 16.06h.05a54.65 54.65 0 0 0 38.57-16.06l18.39-18.38a8 8 0 0 0-11.32-11.32Z"/></svg>
+                                <i class="ph ph-check text-[14px]" aria-hidden="true"></i>
+                            {/if}
+                            {#if linkCopiedId !== item.id}
+                                <i class="ph ph-link text-[14px]" aria-hidden="true"></i>
                             {/if}
                         </button>
                     </div>

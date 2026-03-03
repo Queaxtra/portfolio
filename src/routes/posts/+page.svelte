@@ -75,7 +75,7 @@
                     <h1 class="text-xl md:text-2xl font-bold">~/all_posts</h1>
 
                     <div class="relative w-full sm:w-64">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256" class="absolute left-3 top-1/2 -translate-y-1/2 opacity-50"><path fill="currentColor" d="M229.66 218.34l-50.06-50.06a88.11 88.11 0 1 0-11.32 11.32l50.06 50.06a8 8 0 0 0 11.32-11.32M40 112a72 72 0 1 1 72 72a72.08 72.08 0 0 1-72-72"/></svg>
+                        <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[14px] opacity-50" aria-hidden="true"></i>
                         <Input
                             type="text"
                             placeholder="Search posts..."
