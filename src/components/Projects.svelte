@@ -1,6 +1,7 @@
 <script lang="ts">
     import * as Card from "$lib/components/ui/card";
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+    import { Badge } from "$lib/components/ui/badge";
     import { projects } from "$lib/utils/projects";
 
     const projectProfiles = [
@@ -57,8 +58,27 @@
                             role={project.href ? "link" : undefined}
                         >
                             <Card.Header>
-                                <Card.Title>{project.title}</Card.Title>
-                                <Card.Description class="text-black/70 dark:text-white/70">
+                                <Card.Title class="flex items-center gap-2">
+                                    {#if project.paused}
+                                        <DropdownMenu.Root>
+                                            <DropdownMenu.Trigger class="cursor-help hover:text-amber-500 transition-colors" onclick={(e) => e.stopPropagation()}>
+                                                <i class="ph ph-pause-circle text-amber-500"></i>
+                                            </DropdownMenu.Trigger>
+                                            <DropdownMenu.Content class="w-64" align="start">
+                                                <DropdownMenu.Label class="text-amber-500 font-semibold flex items-center gap-2">
+                                                    <i class="ph ph-coffee"></i>
+                                                    On a Coffee Break
+                                                </DropdownMenu.Label>
+                                                <DropdownMenu.Separator />
+                                                <DropdownMenu.Item disabled class="text-sm text-muted-foreground cursor-default">
+                                                    This project is currently napping. Wake it up? Nah, let it rest in peace.
+                                                </DropdownMenu.Item>
+                                            </DropdownMenu.Content>
+                                        </DropdownMenu.Root>
+                                    {/if}
+                                    {project.title}
+                                </Card.Title>
+                                <Card.Description>
                                     {project.description}
                                 </Card.Description>
                             </Card.Header>
