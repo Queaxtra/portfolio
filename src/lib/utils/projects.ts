@@ -41,5 +41,11 @@ export const projects: Project[] = [
     description: "Industrial-grade wire fence manufacturing and installation solutions for residential, agricultural, and commercial projects. Galvanized wire mesh, panel fences, lawn fences, barbed wire, razor wire, concrete posts, nationwide shipping in Turkey, and professional on-site installation services.",
     href: "https://www.pecinlertelcit.com/",
     paused: false
+  },
+  {
+    title: "Mavetis",
+    description: "Mavetis is a privacy-first security analysis tool for Git workflows with fully local, zero-network static code review.",
+    href: "https://github.com/pimatis/mavetis",
+    paused: false
   }
 ];

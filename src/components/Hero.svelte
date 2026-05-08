@@ -43,7 +43,7 @@
                 <HoverCardTrigger>
                     <Button href="mailto:hi@fatih.live" class="cursor-pointer relative overflow-hidden group">
                         <span class="relative z-10">Contact Me</span>
-                        <Kbd class="ml-2 text-xs"><span class="text-[10px]">{modifier}</span>M</Kbd>
+                        <Kbd class="ml-2 text-xs hidden sm:inline-flex"><span class="text-[10px]">{modifier}</span>M</Kbd>
                         <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                     </Button>
                 </HoverCardTrigger>
