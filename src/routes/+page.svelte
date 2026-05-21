@@ -7,7 +7,7 @@
     import Footer from "../components/Footer.svelte";
 
     const pageTitle = "Fatih Yılmaz";
-    const pageDescription = "Fatih Yılmaz is a front-end developer based in Türkiye, specializing in creative web projects. Explore his portfolio and discover his work.";
+    const pageDescription = "Fatih Yılmaz is a software developer based in Türkiye, specializing in creative web projects. Explore his portfolio and discover his work.";
 </script>
 
 <svelte:head>
