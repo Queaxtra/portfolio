@@ -1,4 +1,5 @@
 <script lang="ts">
+    import * as Card from "$lib/components/ui/card";
     import * as Tooltip from "$lib/components/ui/tooltip";
 
     type ContributionDay = {
@@ -77,7 +78,8 @@
 <section class="w-full">
     <div class="w-full py-6">
         <div class="space-y-4">
-            <div class="rounded-lg border border-border/80 bg-white/50 p-3 shadow-sm dark:bg-white/5 dark:backdrop-blur-lg sm:p-4">
+            <Card.Root class="gap-0 overflow-hidden py-0">
+                <Card.Content class="p-3 sm:p-4">
                 {#if errorMessage}
                     <div class="flex h-36 flex-col items-center justify-center gap-3 text-center text-xs text-black/55 dark:text-white/55">
                         <p>{errorMessage}</p>
@@ -134,7 +136,8 @@
                     </div>
                 </div>
                 {/if}
-            </div>
+                </Card.Content>
+            </Card.Root>
         </div>
     </div>
 
