@@ -3,12 +3,17 @@
     import { onMount } from 'svelte';
     import { setTheme } from "$lib/utils/theme";
     import * as Tooltip from "$lib/components/ui/tooltip";
+    import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
     import { Kbd } from "$lib/components/ui/kbd";
+    import { locales, type Locale, useI18n } from "$lib/i18n";
 
-    let theme: 'light' | 'dark' = 'light';
+    let theme = $state<'light' | 'dark'>('light');
+    let modifier = $state("Ctrl");
+    const { t, getLocale, setLocale } = useI18n();
 
     onMount(() => {
         if (browser) {
+            modifier = navigator.platform.includes('Mac') ? '⌘' : 'Ctrl';
             const storedTheme = localStorage.getItem('theme');
             theme = storedTheme === 'dark' ? 'dark' : 'light';
             setTheme(theme);
@@ -29,6 +34,10 @@
         theme = theme === 'light' ? 'dark' : 'light';
         setTheme(theme);
     }
+
+    function selectLocale(locale: string) {
+        setLocale(locale as Locale);
+    }
 </script>
 
 <nav class="w-full h-14 justify-center items-center flex mx-auto my-2">
@@ -46,10 +55,26 @@
                 <i class="ph ph-x-logo text-[15px]" aria-hidden="true"></i>
             </a></li>
             <li>
+                <DropdownMenu.Root>
+                    <DropdownMenu.Trigger class="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white uppercase text-xs font-semibold bg-transparent border-none outline-none cursor-pointer" aria-label={t("nav.language")}>
+                        <i class="ph ph-globe-hemisphere-east text-[15px]" aria-hidden="true"></i>
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Content class="w-32" align="end">
+                        <DropdownMenu.RadioGroup value={getLocale()} onValueChange={selectLocale}>
+                            {#each locales as locale}
+                                <DropdownMenu.RadioItem value={locale}>
+                                    {t(`language.${locale}`)}
+                                </DropdownMenu.RadioItem>
+                            {/each}
+                        </DropdownMenu.RadioGroup>
+                    </DropdownMenu.Content>
+                </DropdownMenu.Root>
+            </li>
+            <li>
                 <Tooltip.Provider delayDuration={100}>
                         <Tooltip.Root>
                         <Tooltip.Trigger>
-                            <button on:click={toggleTheme} class="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white" aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}>
+                            <button onclick={toggleTheme} class="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white" aria-label={theme === 'light' ? t("nav.theme.switchDark") : t("nav.theme.switchLight")}>
                                 {#if theme === 'light'}
                                     <i class="ph ph-sun text-[15px]" aria-hidden="true"></i>
                                 {/if}
@@ -60,8 +85,8 @@
                         </Tooltip.Trigger>
                         <Tooltip.Content>
                             <div class="flex items-center gap-2">
-                                <span>Toggle theme</span>
-                                <Kbd><span class="text-xs">{navigator.platform.includes('Mac') ? '⌘' : 'Ctrl'}</span>B</Kbd>
+                                <span>{t("nav.theme.toggle")}</span>
+                                <Kbd><span class="text-xs">{modifier}</span>B</Kbd>
                             </div>
                         </Tooltip.Content>
                     </Tooltip.Root>
@@ -78,7 +103,23 @@
                 <i class="ph ph-x-logo text-[15px]" aria-hidden="true"></i>
             </a></li>
             <li>
-                <button on:click={toggleTheme} class="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white" aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}>
+                <DropdownMenu.Root>
+                    <DropdownMenu.Trigger class="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white uppercase text-xs font-semibold bg-transparent border-none outline-none cursor-pointer" aria-label={t("nav.language")}>
+                        <i class="ph ph-globe-hemisphere-east text-[15px]" aria-hidden="true"></i>
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Content class="w-32" align="end">
+                        <DropdownMenu.RadioGroup value={getLocale()} onValueChange={selectLocale}>
+                            {#each locales as locale}
+                                <DropdownMenu.RadioItem value={locale}>
+                                    {t(`language.${locale}`)}
+                                </DropdownMenu.RadioItem>
+                            {/each}
+                        </DropdownMenu.RadioGroup>
+                    </DropdownMenu.Content>
+                </DropdownMenu.Root>
+            </li>
+            <li>
+                <button onclick={toggleTheme} class="text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white" aria-label={theme === 'light' ? t("nav.theme.switchDark") : t("nav.theme.switchLight")}>
                     {#if theme === 'light'}
                         <i class="ph ph-sun text-[15px]" aria-hidden="true"></i>
                     {/if}

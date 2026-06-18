@@ -1,43 +1,51 @@
 <script>
     let age = new Date().getFullYear() - 2005;
+    import DashedBorder from "./DashedBorder.svelte";
     import * as HoverCard from "$lib/components/ui/hover-card/index";
+    import { useI18n } from "$lib/i18n";
+
+    const { t, getLocale } = useI18n();
 </script>
 
+{#snippet countryCard()}
+    <HoverCard.Root>
+        <HoverCard.Trigger class="text-black dark:text-white underline cursor-help">{t("about.country.inline")}</HoverCard.Trigger>
+        <HoverCard.Content class="w-80">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-4">
+                    <span class="text-6xl">🇹🇷</span>
+                    <div>
+                        <h4 class="text-sm font-semibold">{t("about.country.name")}</h4>
+                        <p class="text-sm text-muted-foreground">{t("about.country.localized")}</p>
+                    </div>
+                </div>
+                <p class="text-sm leading-relaxed">
+                    {t("about.country.description")}
+                </p>
+                <div class="text-xs space-y-1">
+                    <p><span class="font-semibold">{t("about.country.coordinates")}</span> 38.9637° N, 35.2433° E</p>
+                    <p><span class="font-semibold">{t("about.country.capital")}</span> {t("about.country.capitalValue")}</p>
+                    <p><span class="font-semibold">{t("about.country.largestCity")}</span> {t("about.country.largestCityValue")}</p>
+                </div>
+            </div>
+        </HoverCard.Content>
+    </HoverCard.Root>
+{/snippet}
+
 <section class="w-full">
-    <!-- dashed border -->
-    <section class="border-y border-border/50">
-        <div class="h-1.5 w-full dashed-border"></div>
-    </section>
+    <DashedBorder />
 
     <div class="w-full py-6">
         <div class="space-y-4">
-            <h1 class="text-xl md:text-2xl font-bold">~/about</h1>
+            <h1 class="text-xl md:text-2xl font-bold">{t("about.title")}</h1>
             <p class="text-black/70 dark:text-white/70 leading-relaxed">
-                I am a {age} year-old developer based in
-                <HoverCard.Root>
-                    <HoverCard.Trigger class="text-black dark:text-white underline cursor-help">Türkiye</HoverCard.Trigger>
-                    <HoverCard.Content class="w-80">
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-4">
-                                <span class="text-6xl">🇹🇷</span>
-                                <div>
-                                    <h4 class="text-sm font-semibold">Türkiye</h4>
-                                    <p class="text-sm text-muted-foreground">Turkey</p>
-                                </div>
-                            </div>
-                            <p class="text-sm leading-relaxed">
-                                Transcontinental country bridging Europe and Asia. Known for its rich history, strategic location, and vibrant culture.
-                            </p>
-                            <div class="text-xs space-y-1">
-                                <p><span class="font-semibold">Coordinates:</span> 38.9637° N, 35.2433° E</p>
-                                <p><span class="font-semibold">Capital:</span> Ankara</p>
-                                <p><span class="font-semibold">Largest City:</span> Istanbul</p>
-                            </div>
-                        </div>
-                    </HoverCard.Content>
-                </HoverCard.Root>
+                {#if getLocale() === "tr"}
+                    {@render countryCard()} {t("about.intro", { age })}
+                {:else}
+                    {t("about.intro", { age })} {@render countryCard()}
+                {/if}
 
-                , with a strong focus on cryptography and software security. My work emphasizes robust encryption systems and secure software design, reflecting a deep commitment to technical excellence and continuous learning. As a member of
+                {t("about.afterCountry")}
 
                 <HoverCard.Root>
                     <HoverCard.Trigger class="text-black dark:text-white underline cursor-help"><a href="https://github.com/K9Crypt" class="hover:underline">@K9Crypt</a></HoverCard.Trigger>
@@ -47,19 +55,19 @@
                                 <img src="https://cdn.fatih.live/k9crypt-logo.png" alt="K9Crypt" class="w-16 h-16 rounded-lg" />
                                 <div>
                                     <h4 class="text-sm font-semibold">K9Crypt</h4>
-                                    <p class="text-sm text-muted-foreground">Security & Privacy</p>
+                                    <p class="text-sm text-muted-foreground">{t("about.k9crypt.category")}</p>
                                 </div>
                             </div>
                             <p class="text-sm leading-relaxed">
-                                Military-grade encryption platform focused on secure messaging and zero-knowledge architecture. Provides end-to-end encryption with no data retention.
+                                {t("about.k9crypt.description")}
                             </p>
                             <div class="text-xs space-y-2">
-                                <p><span class="font-semibold">Mission:</span> Privacy as a fundamental human right</p>
-                                <p><span class="font-semibold">Features:</span> E2E Encryption, Zero-Knowledge, Open Source, Self-Destructing Messages</p>
+                                <p><span class="font-semibold">{t("about.k9crypt.mission")}</span> {t("about.k9crypt.missionValue")}</p>
+                                <p><span class="font-semibold">{t("about.k9crypt.features")}</span> {t("about.k9crypt.featuresValue")}</p>
                             </div>
                         </div>
                     </HoverCard.Content>
-                </HoverCard.Root> on GitHub, I contribute to and lead projects centered on security and cryptographic solutions. I value precision, thoroughness, and professionalism in every stage of development, ensuring that each project meets the highest standards before release. Outside of my core work, I actively explore emerging technologies and engage with the latest research to refine my expertise and drive innovation.
+                </HoverCard.Root> {t("about.afterK9Crypt")}
             </p>
         </div>
     </div>

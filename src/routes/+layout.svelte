@@ -1,8 +1,16 @@
+<script lang="ts" module>
+	import type { LayoutProps } from './$types';
+
+	export type I18nContext = LayoutProps['data']['i18n'];
+</script>
+
 <script lang="ts">
 	import '../app.css';
 	import { onMount } from 'svelte';
+    import { createI18nContext } from '$lib/i18n';
 
-	let { children } = $props();
+	let { children, data }: LayoutProps = $props();
+    createI18nContext(() => data.i18n);
 
 	onMount(() => {
 		const storedTheme = localStorage.getItem('theme');

@@ -1,6 +1,8 @@
 <script lang="ts">
+    import DashedBorder from "./DashedBorder.svelte";
     import * as Card from "$lib/components/ui/card";
     import * as Tooltip from "$lib/components/ui/tooltip";
+    import { useI18n } from "$lib/i18n";
 
     type ContributionDay = {
         date: string;
@@ -27,16 +29,10 @@
         errorMessage?: string;
     } = $props();
 
-    const monthFormatter = new Intl.DateTimeFormat("en", { month: "short" });
-    const dateFormatter = new Intl.DateTimeFormat("en", {
-        month: "short",
-        day: "numeric",
-        year: "numeric"
-    });
     const weekdays = [
-        { label: "Mon", row: 2 },
-        { label: "Wed", row: 4 },
-        { label: "Fri", row: 6 }
+        { key: "contributions.weekday.mon", row: 2 },
+        { key: "contributions.weekday.wed", row: 4 },
+        { key: "contributions.weekday.fri", row: 6 }
     ];
     const densityClasses = [
         "bg-slate-200 dark:bg-[#2d333d]",
@@ -46,7 +42,9 @@
         "bg-emerald-600 dark:bg-[#39d353]"
     ];
 
-    let contributionTotal = $derived(new Intl.NumberFormat("en").format(contributions?.total ?? 0));
+    const { t, getLocale } = useI18n();
+
+    let contributionTotal = $derived(new Intl.NumberFormat(getLocale()).format(contributions?.total ?? 0));
     let weeks = $derived(contributions?.weeks ?? []);
     let months = $derived(getMonths(weeks));
 
@@ -54,7 +52,7 @@
         let lastMonth = "";
 
         return contributionWeeks.reduce<Array<{ label: string; column: number }>>((items, week, index) => {
-            const month = monthFormatter.format(new Date(`${week.firstDay}T00:00:00Z`));
+            const month = new Intl.DateTimeFormat(getLocale(), { month: "short" }).format(new Date(`${week.firstDay}T00:00:00Z`));
 
             if (month === lastMonth) {
                 return items;
@@ -68,10 +66,18 @@
     }
 
     function formatDayLabel(day: ContributionDay) {
-        const contributionLabel = day.count === 1 ? "contribution" : "contributions";
-        const dateLabel = dateFormatter.format(new Date(`${day.date}T00:00:00Z`));
+        const contributionLabel = day.count === 1 ? t("contributions.one") : t("contributions.many");
+        const dateLabel = new Intl.DateTimeFormat(getLocale(), {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        }).format(new Date(`${day.date}T00:00:00Z`));
 
-        return `${day.count} ${contributionLabel} on ${dateLabel}`;
+        return t("contributions.dayLabel", {
+            count: day.count,
+            contribution: contributionLabel,
+            date: dateLabel
+        });
     }
 </script>
 
@@ -85,7 +91,7 @@
                         <p>{errorMessage}</p>
                     </div>
                 {:else}
-                <div class="overflow-x-auto pb-2" aria-label="GitHub style contribution activity graph" role="img">
+                <div class="overflow-x-auto pb-2" aria-label={t("contributions.graphLabel")} role="img">
                     <div class="min-w-[740px]">
                         <div class="ml-10 grid grid-cols-[repeat(53,0.75rem)] gap-[3px] pb-2 text-xs font-medium text-black/60 dark:text-white/65">
                             {#each months as month}
@@ -96,7 +102,7 @@
                         <div class="flex gap-2">
                             <div class="grid grid-rows-[repeat(7,0.75rem)] gap-[3px] pt-0 text-xs font-medium text-black/60 dark:text-white/65">
                                 {#each weekdays as weekday}
-                                    <span class="leading-3" style={`grid-row: ${weekday.row};`}>{weekday.label}</span>
+                                    <span class="leading-3" style={`grid-row: ${weekday.row};`}>{t(weekday.key)}</span>
                                 {/each}
                             </div>
 
@@ -124,13 +130,13 @@
 
                         <div class="mt-3 flex justify-end pl-10 text-xs font-medium text-black/55 dark:text-white/55">
                             <div class="flex items-center gap-1.5">
-                                <span>Less</span>
+                                <span>{t("contributions.less")}</span>
                                 <span class={`size-3 rounded-[3px] ${densityClasses[0]}`} aria-hidden="true"></span>
                                 <span class={`size-3 rounded-[3px] ${densityClasses[1]}`} aria-hidden="true"></span>
                                 <span class={`size-3 rounded-[3px] ${densityClasses[2]}`} aria-hidden="true"></span>
                                 <span class={`size-3 rounded-[3px] ${densityClasses[3]}`} aria-hidden="true"></span>
                                 <span class={`size-3 rounded-[3px] ${densityClasses[4]}`} aria-hidden="true"></span>
-                                <span>More</span>
+                                <span>{t("contributions.more")}</span>
                             </div>
                         </div>
                     </div>
@@ -141,7 +147,5 @@
         </div>
     </div>
 
-    <section class="border-y border-border/50">
-        <div class="h-1.5 w-full dashed-border"></div>
-    </section>
+    <DashedBorder />
 </section>

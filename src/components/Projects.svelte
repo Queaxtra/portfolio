@@ -1,10 +1,12 @@
 <script lang="ts">
+    import DashedBorder from "./DashedBorder.svelte";
     import * as Card from "$lib/components/ui/card";
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
     import { Badge } from "$lib/components/ui/badge";
     import { Skeleton } from "$lib/components/ui/skeleton";
     import { projects } from "$lib/utils/projects";
     import { onMount } from "svelte";
+    import { useI18n } from "$lib/i18n";
 
     const projectProfiles = [
         { label: "K9Crypt", href: "https://k9crypt.xyz/" },
@@ -13,6 +15,7 @@
     ];
 
     let loading = $state(true);
+    const { t } = useI18n();
 
     onMount(() => {
         const timer = setTimeout(() => {
@@ -38,10 +41,10 @@
     <div class="w-full max-w-6xl mx-auto py-6">
         <div class="space-y-4">
             <div class="flex justify-between items-center">
-                <h1 class="text-xl md:text-2xl font-bold">~/projects</h1>
+                <h1 class="text-xl md:text-2xl font-bold">{t("projects.title")}</h1>
                 <DropdownMenu.Root bind:open={dropdownOpen}>
                     <DropdownMenu.Trigger class="hover:underline text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:transition-opacity text-sm flex items-center space-x-1 cursor-pointer bg-transparent border-none outline-none font-medium">
-                        <span>See all Projects</span>
+                        <span>{t("projects.seeAll")}</span>
                         <i class="ph ph-caret-right inline-block text-[15px] transition-transform duration-200" style="transform: rotate({dropdownOpen ? 90 : 0}deg);" aria-hidden="true"></i>
                     </DropdownMenu.Trigger>
                     <DropdownMenu.Content class="w-48" align="end">
@@ -69,7 +72,7 @@
                     {/each}
                 </div>
             {:else if projects.length === 0}
-                <p class="text-black/70 dark:text-white/70">No projects yet.</p>
+                <p class="text-black/70 dark:text-white/70">{t("projects.empty")}</p>
             {:else}
                 <div class="grid grid-cols-1 gap-4">
                     {#each projects as project}
@@ -95,14 +98,14 @@
                                     {project.title}
                                 </Card.Title>
                                 <Card.Description>
-                                    {project.description}
+                                    {t(project.descriptionKey)}
                                 </Card.Description>
                             </Card.Header>
                             {#if project.paused}
                                 <Card.Footer class="relative z-10 pt-0">
                                     <p class="text-xs text-amber-500/60 flex items-center gap-1.5">
                                         <i class="ph ph-coffee"></i>
-                                        This project is taking a break
+                                        {t("projects.paused")}
                                     </p>
                                 </Card.Footer>
                             {/if}
@@ -113,7 +116,5 @@
         </div>
     </div>
 
-    <section class="border-y border-border/50">
-        <div class="h-1.5 w-full dashed-border"></div>
-    </section>
+    <DashedBorder />
 </section>

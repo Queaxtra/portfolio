@@ -1,9 +1,11 @@
 <script lang="ts">
     import { onMount, onDestroy } from 'svelte';
     import * as HoverCard from "$lib/components/ui/hover-card/index";
+    import { useI18n } from "$lib/i18n";
 
     let time: string;
     let interval: ReturnType<typeof setInterval>;
+    const { t } = useI18n();
 
     function updateTime() {
         time = new Intl.DateTimeFormat(navigator.language, {
@@ -35,19 +37,19 @@
                         <div class="flex items-center space-x-3">
                             <span class="text-4xl">⏰</span>
                             <div>
-                                <h4 class="text-sm font-semibold">Time is an illusion</h4>
-                                <p class="text-xs text-muted-foreground">Lunchtime doubly so.</p>
+                                <h4 class="text-sm font-semibold">{t("footer.time.title")}</h4>
+                                <p class="text-xs text-muted-foreground">{t("footer.time.subtitle")}</p>
                             </div>
                         </div>
                         <p class="text-sm leading-relaxed">
-                            You're staring at a clock on someone's portfolio. Think about that for a second. You could be outside. Touching grass. But no, you're here, watching <span class="font-mono">{time}</span> tick away.
+                            {t("footer.time.description", { time })}
                         </p>
                         <div class="text-xs space-y-1 text-muted-foreground">
-                            <p><span class="font-semibold">Your local time:</span> {time}</p>
-                            <p><span class="font-semibold">Time well spent?</span> Debatable.</p>
+                            <p><span class="font-semibold">{t("footer.time.local")}</span> {time}</p>
+                            <p><span class="font-semibold">{t("footer.time.spent")}</span> {t("footer.time.spentValue")}</p>
                         </div>
                         <p class="text-[10px] text-muted-foreground/50 italic">
-                            Every second you spend here is a second you'll never get back. You're welcome.
+                            {t("footer.time.note")}
                         </p>
                     </div>
                 </HoverCard.Content>

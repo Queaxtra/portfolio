@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "description": "Fatih Yılmaz, Türkiye merkezli ve yaratıcı web projelerinde uzmanlaşan bir yazılım geliştiricisidir. Portföyünü inceleyin ve çalışmalarını keşfedin."
+  },
+  "nav": {
+    "language": "Dil",
+    "theme": {
+      "toggle": "Temayı değiştir",
+      "switchDark": "Koyu temaya geç",
+      "switchLight": "Açık temaya geç"
+    }
+  },
+  "language": {
+    "en": "İngilizce",
+    "tr": "Türkçe"
+  },
+  "hero": {
+    "title": "Kriptografi Meraklısı, Yazılım Geliştirici",
+    "description": "Türkiye'de yaşayan, kendi projelerini geliştiren, kriptografiye takıntılı ve güvenlik bilinci yüksek bir ekip arkadaşı.",
+    "contact": "İletişime Geç",
+    "hover": "Biliyorum, bazen bir butona tıklamak fazla kesin hissettirir. Onun yerine burada biraz bekle.",
+    "copied": "Kopyalandı!",
+    "copyEmail": "hi@fatih.live adresini kopyala"
+  },
+  "about": {
+    "title": "~/hakkımda",
+    "intro": "yaşayan {age} yaşında bir geliştiriciyim",
+    "afterCountry": ", kriptografi ve yazılım güvenliğine güçlü biçimde odaklanıyorum. Çalışmalarım sağlam şifreleme sistemlerini ve güvenli yazılım tasarımını öne çıkarır, teknik mükemmelliğe ve sürekli öğrenmeye olan bağlılığımı yansıtır. GitHub'da",
+    "afterK9Crypt": "üyesi olarak güvenlik ve kriptografik çözümler merkezli projelere katkı sağlıyor ve liderlik ediyorum. Geliştirmenin her aşamasında hassasiyete, titizliğe ve profesyonelliğe değer veriyorum, her projenin yayınlanmadan önce en yüksek standartları karşılamasını sağlıyorum. Ana çalışmalarımın dışında yeni teknolojileri aktif olarak araştırıyor, uzmanlığımı geliştirmek ve yeniliği ileri taşımak için en güncel araştırmaları takip ediyorum.",
+    "country": {
+      "inline": "Türkiye'de",
+      "name": "Türkiye",
+      "localized": "Türkiye",
+      "description": "Avrupa ve Asya'yı birbirine bağlayan kıtalararası bir ülke. Zengin tarihi, stratejik konumu ve canlı kültürüyle bilinir.",
+      "coordinates": "Koordinatlar:",
+      "capital": "Başkent:",
+      "capitalValue": "Ankara",
+      "largestCity": "En Büyük Şehir:",
+      "largestCityValue": "İstanbul"
+    },
+    "k9crypt": {
+      "category": "Güvenlik ve Gizlilik",
+      "description": "Güvenli mesajlaşma ve sıfır bilgi mimarisine odaklanan askeri düzeyde bir şifreleme platformudur. Veri saklamadan uçtan uca şifreleme sağlar.",
+      "mission": "Misyon:",
+      "missionValue": "Gizliliği temel bir insan hakkı olarak savunmak",
+      "features": "Özellikler:",
+      "featuresValue": "Uçtan Uca Şifreleme, Sıfır Bilgi, Açık Kaynak, Kendini İmha Eden Mesajlar"
+    }
+  },
+  "contributions": {
+    "graphLabel": "GitHub tarzı katkı aktivite grafiği",
+    "one": "katkı",
+    "many": "katkı",
+    "dayLabel": "{date} tarihinde {count} {contribution}",
+    "less": "Az",
+    "more": "Çok",
+    "weekday": {
+      "mon": "Pzt",
+      "wed": "Çar",
+      "fri": "Cum"
+    }
+  },
+  "projects": {
+    "title": "~/projeler",
+    "seeAll": "Tüm Projeleri Gör",
+    "empty": "Henüz proje yok.",
+    "paused": "Bu proje kısa bir mola veriyor"
+  },
+  "project": {
+    "k9crypt": {
+      "description": "Uçtan uca şifreleme ve sıfır bilgi mimarisiyle gizlilik odaklı mesajlaşma sunar. Veri saklamaz, açık kaynaklıdır, çapraz platform desteği sağlar, kendini imha eden mesajları destekler ve reklamsız bir deneyim sunar."
+    },
+    "svelteDoctor": {
+      "description": "Svelte kod tabanınızdaki performans, doğruluk ve mimari sorunlarını teşhis edip düzeltir. 33 tanılama kuralı, yapay zeka destekli otomatik düzeltme, Svelte 4→5 geçişi, canlı izleme modu, bağımlılık sağlık kontrolleri. Sıfır konfigürasyon."
+    },
+    "raco": {
+      "description": "3 panelli TUI'ye sahip yüksek performanslı terminal tabanlı HTTP istemcisi. HTTP, WebSocket ve gRPC desteği. Dosya yükleme/indirme, fare ve klavye, pano, Git dostu JSON/YAML depolama, istek geçmişi, metrik paneli."
+    },
+    "zvelte": {
+      "description": "Shadcn UI, Tailwind CSS ve i18n ile SvelteKit projeleri oluşturmak için geliştirilmiş bir CLI aracıdır. Production-ready bir şablonu klonlar, package.json adını, açıklamasını ve sürümünü otomatik günceller. Bunx ile çalışır, global kurulum gerektirmez."
+    },
+    "zyla": {
+      "description": "Herkes için yapay zeka destekli anlık çeviri. Web'deki herhangi bir metni tek tıkla çevirin. Ücretsiz, sınırsız, hızlı. Web uygulaması ve tarayıcı eklentisi. Karakter sınırı veya kayıt zorunluluğu yok."
+    },
+    "pecinler": {
+      "description": "Konut, tarım ve ticari projeler için endüstriyel düzeyde tel çit üretimi ve montaj çözümleri. Galvanizli tel örgü, panel çit, bahçe çiti, dikenli tel, jiletli tel, beton direkler, Türkiye geneli gönderim ve profesyonel yerinde montaj hizmetleri."
+    },
+    "mavetis": {
+      "description": "Mavetis, Git iş akışları için tamamen yerel çalışan, ağ bağlantısı gerektirmeyen statik kod inceleme özellikli gizlilik odaklı bir güvenlik analiz aracıdır."
+    }
+  },
+  "contact": {
+    "title": "~/iletişim"
+  },
+  "footer": {
+    "time": {
+      "title": "Zaman bir illüzyondur",
+      "subtitle": "Öğle yemeği vakti ise iki kat öyle.",
+      "description": "Birinin portföyündeki saate bakıyorsun. Bunu bir saniye düşün. Dışarıda olabilirdin. Çimlere dokunabilirdin. Ama hayır, buradasın ve {time} akıp giderken izliyorsun.",
+      "local": "Yerel saatin:",
+      "spent": "İyi değerlendirilmiş zaman mı?",
+      "spentValue": "Tartışılır.",
+      "note": "Burada geçirdiğin her saniye asla geri gelmeyecek. Rica ederim."
+    }
+  }
+}

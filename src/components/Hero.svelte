@@ -4,9 +4,11 @@
     import Button from "$lib/components/ui/button/button.svelte";
     import { HoverCard, HoverCardTrigger, HoverCardContent } from "$lib/components/ui/hover-card/index.js";
     import { Kbd } from "$lib/components/ui/kbd";
+    import { useI18n } from "$lib/i18n";
 
     let copied = $state(false);
     let modifier = $state("Ctrl");
+    const { t } = useI18n();
 
     onMount(() => {
         if (browser) {
@@ -36,13 +38,13 @@
 <section class="w-full h-96 flex my-2">
     <div class="flex justify-center items-center w-full max-w-6xl mx-auto px-4">
         <div class="text-center space-y-4">
-            <h1 class="text-4xl md:text-5xl font-bold">Cryptography Enthusiast, Software Developer</h1>
-            <p class="text-lg opacity-80">A teammate who lives in Türkiye, develops projects on his own, is obsessed with cryptography, and is security-conscious.</p>
+            <h1 class="text-4xl md:text-5xl font-bold">{t("hero.title")}</h1>
+            <p class="text-lg opacity-80">{t("hero.description")}</p>
 
             <HoverCard openDelay={100} closeDelay={200}>
                 <HoverCardTrigger>
                     <Button href="mailto:hi@fatih.live" class="cursor-pointer relative overflow-hidden group">
-                        <span class="relative z-10">Contact Me</span>
+                        <span class="relative z-10">{t("hero.contact")}</span>
                         <Kbd class="ml-2 text-xs hidden sm:inline-flex"><span class="text-[10px]">{modifier}</span>M</Kbd>
                         <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                     </Button>
@@ -50,7 +52,7 @@
                 <HoverCardContent>
                     <div class="space-y-3">
                         <p class="text-sm dark:text-white/80 text-black/80">
-                            I know, sometimes clicking a button feels too permanent. Hover here instead.
+                            {t("hero.hover")}
                         </p>
                         <Button
                             variant="outline"
@@ -60,10 +62,10 @@
                         >
                             {#if copied}
                                 <i class="ph ph-check"></i>
-                                Copied!
+                                {t("hero.copied")}
                             {:else}
                                 <i class="ph ph-copy"></i>
-                                Copy hi@fatih.live
+                                {t("hero.copyEmail")}
                             {/if}
                         </Button>
                     </div>

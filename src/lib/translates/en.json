@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "description": "Fatih Yılmaz is a software developer based in Türkiye, specializing in creative web projects. Explore his portfolio and discover his work."
+  },
+  "nav": {
+    "language": "Language",
+    "theme": {
+      "toggle": "Toggle theme",
+      "switchDark": "Switch to dark theme",
+      "switchLight": "Switch to light theme"
+    }
+  },
+  "language": {
+    "en": "English",
+    "tr": "Turkish"
+  },
+  "hero": {
+    "title": "Cryptography Enthusiast, Software Developer",
+    "description": "A teammate who lives in Türkiye, develops projects on his own, is obsessed with cryptography, and is security-conscious.",
+    "contact": "Contact Me",
+    "hover": "I know, sometimes clicking a button feels too permanent. Hover here instead.",
+    "copied": "Copied!",
+    "copyEmail": "Copy hi@fatih.live"
+  },
+  "about": {
+    "title": "~/about",
+    "intro": "I am a {age} year-old developer based in",
+    "afterCountry": ", with a strong focus on cryptography and software security. My work emphasizes robust encryption systems and secure software design, reflecting a deep commitment to technical excellence and continuous learning. As a member of",
+    "afterK9Crypt": "on GitHub, I contribute to and lead projects centered on security and cryptographic solutions. I value precision, thoroughness, and professionalism in every stage of development, ensuring that each project meets the highest standards before release. Outside of my core work, I actively explore emerging technologies and engage with the latest research to refine my expertise and drive innovation.",
+    "country": {
+      "inline": "Türkiye",
+      "name": "Türkiye",
+      "localized": "Turkey",
+      "description": "Transcontinental country bridging Europe and Asia. Known for its rich history, strategic location, and vibrant culture.",
+      "coordinates": "Coordinates:",
+      "capital": "Capital:",
+      "capitalValue": "Ankara",
+      "largestCity": "Largest City:",
+      "largestCityValue": "Istanbul"
+    },
+    "k9crypt": {
+      "category": "Security & Privacy",
+      "description": "Military-grade encryption platform focused on secure messaging and zero-knowledge architecture. Provides end-to-end encryption with no data retention.",
+      "mission": "Mission:",
+      "missionValue": "Privacy as a fundamental human right",
+      "features": "Features:",
+      "featuresValue": "E2E Encryption, Zero-Knowledge, Open Source, Self-Destructing Messages"
+    }
+  },
+  "contributions": {
+    "graphLabel": "GitHub style contribution activity graph",
+    "one": "contribution",
+    "many": "contributions",
+    "dayLabel": "{count} {contribution} on {date}",
+    "less": "Less",
+    "more": "More",
+    "weekday": {
+      "mon": "Mon",
+      "wed": "Wed",
+      "fri": "Fri"
+    }
+  },
+  "projects": {
+    "title": "~/projects",
+    "seeAll": "See all Projects",
+    "empty": "No projects yet.",
+    "paused": "This project is taking a break"
+  },
+  "project": {
+    "k9crypt": {
+      "description": "Privacy-first messaging with end-to-end encryption and zero-knowledge architecture. No data retention, open source, cross-platform support, self-destructing messages, and an ad-free experience."
+    },
+    "svelteDoctor": {
+      "description": "Diagnose and fix performance, correctness, and architecture issues in your Svelte codebase. 33 diagnostic rules, AI-powered auto-fix, Svelte 4→5 migration, live watch mode, dependency health checks. Zero config."
+    },
+    "raco": {
+      "description": "High-performance terminal-based HTTP client with 3-panel TUI. HTTP, WebSocket, and gRPC support. File upload/download, mouse & keyboard, clipboard, Git-friendly JSON/YAML storage, request history, metrics dashboard."
+    },
+    "zvelte": {
+      "description": "CLI to scaffold SvelteKit projects with Shadcn UI, Tailwind CSS, and i18n. Clones a production-ready template; auto-updates package.json name, description, and version. Run with bunx, no global install."
+    },
+    "zyla": {
+      "description": "AI-powered instant translation for everyone. Translate any text on the web in one click. Free, unlimited, fast. Web app and browser extension. No character limits or sign-up required."
+    },
+    "pecinler": {
+      "description": "Industrial-grade wire fence manufacturing and installation solutions for residential, agricultural, and commercial projects. Galvanized wire mesh, panel fences, lawn fences, barbed wire, razor wire, concrete posts, nationwide shipping in Turkey, and professional on-site installation services."
+    },
+    "mavetis": {
+      "description": "Mavetis is a privacy-first security analysis tool for Git workflows with fully local, zero-network static code review."
+    }
+  },
+  "contact": {
+    "title": "~/contact"
+  },
+  "footer": {
+    "time": {
+      "title": "Time is an illusion",
+      "subtitle": "Lunchtime doubly so.",
+      "description": "You're staring at a clock on someone's portfolio. Think about that for a second. You could be outside. Touching grass. But no, you're here, watching {time} tick away.",
+      "local": "Your local time:",
+      "spent": "Time well spent?",
+      "spentValue": "Debatable.",
+      "note": "Every second you spend here is a second you'll never get back. You're welcome."
+    }
+  }
+}
