@@ -87,6 +87,12 @@
     },
     "mavetis": {
       "description": "Mavetis, Git iş akışları için tamamen yerel çalışan, ağ bağlantısı gerektirmeyen statik kod inceleme özellikli gizlilik odaklı bir güvenlik analiz aracıdır."
+    },
+    "tack": {
+      "description": "İnsanlar ve yapay zeka ajanları için bir masaüstü görev yöneticisi. Gereksiz şey yok, şişkinlik yok. Sadece görevler, projeler ve uygulama ile aynı veritabanını konuşan bir komut satırı aracı."
+    },
+    "zeltatv": {
+      "description": "Electron, SvelteKit ve HLS.js ile oluşturulmuş çapraz platform bir masaüstü IPTV oynatıcısı. URL'lerden veya yerel dosyalardan M3U/M3U8 oynatma listelerini yükleyin, kanalları tarayın ve temiz, minimal bir arayüzle canlı TV yayınını izleyin."
     }
   },
   "contact": {

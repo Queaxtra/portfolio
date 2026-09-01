@@ -12,7 +12,7 @@ export const projects: Project[] = [
     description: "Privacy-first messaging with end-to-end encryption and zero-knowledge architecture. No data retention, open source, cross-platform support, self-destructing messages, and an ad-free experience.",
     descriptionKey: "project.k9crypt.description",
     href: "https://k9crypt.xyz/",
-    paused: false
+    paused: true
   },
   {
     title: "svelte-doctor",
@@ -54,6 +54,20 @@ export const projects: Project[] = [
     description: "Mavetis is a privacy-first security analysis tool for Git workflows with fully local, zero-network static code review.",
     descriptionKey: "project.mavetis.description",
     href: "https://github.com/pimatis/mavetis",
+    paused: false
+  },
+  {
+    title: "Tack",
+    description: "A desktop task manager for humans and AI agents. No bullshit, no bloat. Just tasks, projects, and a CLI that talks to the same database as the app.",
+    descriptionKey: "project.tack.description",
+    href: "https://github.com/pimatis/tack",
+    paused: false
+  },
+  {
+    title: "ZeltaTV",
+    description: "A cross-platform desktop IPTV player built with Electron, SvelteKit, and HLS.js. Load M3U/M3U8 playlists from URLs or local files, browse channels, and stream live TV with a clean, minimal interface.",
+    descriptionKey: "project.zeltatv.description",
+    href: "https://github.com/zeltatv/zeltatv",
     paused: false
   }
 ];

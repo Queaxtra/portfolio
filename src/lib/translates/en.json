@@ -87,6 +87,12 @@
     },
     "mavetis": {
       "description": "Mavetis is a privacy-first security analysis tool for Git workflows with fully local, zero-network static code review."
+    },
+    "tack": {
+      "description": "A desktop task manager for humans and AI agents. No bullshit, no bloat. Just tasks, projects, and a CLI that talks to the same database as the app."
+    },
+    "zeltatv": {
+      "description": "A cross-platform desktop IPTV player built with Electron, SvelteKit, and HLS.js. Load M3U/M3U8 playlists from URLs or local files, browse channels, and stream live TV with a clean, minimal interface."
     }
   },
   "contact": {
