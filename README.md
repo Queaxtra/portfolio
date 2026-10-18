@@ -30,6 +30,24 @@ To create a token:
 
 Do not commit your `.env` file or expose your token publicly.
 
+## PocketBase integration
+
+Projects are loaded from PocketBase. Add these variables to `.env`:
+
+```bash
+PB_URL=https://your-pocketbase-url/
+VITE_APP_PBURL=https://your-pocketbase-url/
+```
+
+The app reads `VITE_APP_PBURL` through `$env/dynamic/private` in `src/lib/db/index.ts`. Projects are fetched via `/api/projects` and rendered client-side in `src/components/Projects.svelte`.
+
+Expected `projects` collection fields:
+
+- `name` (string)
+- `description` (string, HTML)
+- `url` (string)
+- `paused` (boolean)
+
 Run the project:
 
 ```bash

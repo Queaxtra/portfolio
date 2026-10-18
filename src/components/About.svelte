@@ -48,26 +48,23 @@
                 {t("about.afterCountry")}
 
                 <HoverCard.Root>
-                    <HoverCard.Trigger class="text-black dark:text-white underline cursor-help"><a href="https://github.com/K9Crypt" class="hover:underline">@K9Crypt</a></HoverCard.Trigger>
+                    <HoverCard.Trigger class="text-black dark:text-white underline cursor-help"><a href="https://github.com/pimatis" class="hover:underline">@Pimatis</a></HoverCard.Trigger>
                     <HoverCard.Content class="w-80">
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4">
-                                <img src="https://cdn.fatih.live/k9crypt-logo.png" alt="K9Crypt" class="w-16 h-16 rounded-lg" />
+                                <img src="https://cdn.fatih.live/pimatis-black-rb.png" alt="Pimatis" class="w-16 h-16 rounded-lg dark:hidden" />
+                                <img src="https://cdn.fatih.live/pimatis-white-rb.png" alt="Pimatis" class="w-16 h-16 rounded-lg hidden dark:block" />
                                 <div>
-                                    <h4 class="text-sm font-semibold">K9Crypt</h4>
-                                    <p class="text-sm text-muted-foreground">{t("about.k9crypt.category")}</p>
+                                    <h4 class="text-sm font-semibold">Pimatis</h4>
+                                    <p class="text-sm text-muted-foreground">{t("about.pimatis.category")}</p>
                                 </div>
                             </div>
                             <p class="text-sm leading-relaxed">
-                                {t("about.k9crypt.description")}
+                                {t("about.pimatis.description")}
                             </p>
-                            <div class="text-xs space-y-2">
-                                <p><span class="font-semibold">{t("about.k9crypt.mission")}</span> {t("about.k9crypt.missionValue")}</p>
-                                <p><span class="font-semibold">{t("about.k9crypt.features")}</span> {t("about.k9crypt.featuresValue")}</p>
-                            </div>
                         </div>
                     </HoverCard.Content>
-                </HoverCard.Root> {t("about.afterK9Crypt")}
+                </HoverCard.Root> {t("about.afterPimatis")}
             </p>
         </div>
     </div>

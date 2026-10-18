@@ -27,12 +27,14 @@
 {@render children()}
 
 <style>
+	@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
 	:global(body) {
-		font-family: 'Product Sans', sans-serif;
+		font-family: 'SF Pro Display', sans-serif;
 		margin: 0;
 		padding: 0;
 		justify-content: center;
-		background-color: #fcfcfc;
+		background-color: var(--background);
 	}
 
 	:global(.dark body) {
@@ -40,6 +42,7 @@
 	}
 
 	:global(h1) {
-	    font-family: 'Product Sans Black', sans-serif;
+		font-family: 'SF Pro Display', sans-serif;
+		font-weight: 700;
 	}
 </style>

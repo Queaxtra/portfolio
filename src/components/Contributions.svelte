@@ -88,7 +88,7 @@
                 <Card.Content class="p-3 sm:p-4">
                 {#if errorMessage}
                     <div class="flex h-36 flex-col items-center justify-center gap-3 text-center text-xs text-black/55 dark:text-white/55">
-                        <p>{errorMessage}</p>
+                        <p>{t("errors.github")}</p>
                     </div>
                 {:else}
                 <div class="overflow-x-auto pb-2" aria-label={t("contributions.graphLabel")} role="img">

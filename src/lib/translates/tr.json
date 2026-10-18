@@ -26,7 +26,7 @@
     "title": "~/hakkımda",
     "intro": "yaşayan {age} yaşında bir geliştiriciyim",
     "afterCountry": ", kriptografi ve yazılım güvenliğine güçlü biçimde odaklanıyorum. Çalışmalarım sağlam şifreleme sistemlerini ve güvenli yazılım tasarımını öne çıkarır, teknik mükemmelliğe ve sürekli öğrenmeye olan bağlılığımı yansıtır. GitHub'da",
-    "afterK9Crypt": "üyesi olarak güvenlik ve kriptografik çözümler merkezli projelere katkı sağlıyor ve liderlik ediyorum. Geliştirmenin her aşamasında hassasiyete, titizliğe ve profesyonelliğe değer veriyorum, her projenin yayınlanmadan önce en yüksek standartları karşılamasını sağlıyorum. Ana çalışmalarımın dışında yeni teknolojileri aktif olarak araştırıyor, uzmanlığımı geliştirmek ve yeniliği ileri taşımak için en güncel araştırmaları takip ediyorum.",
+    "afterPimatis": "üyesi olarak güvenlik ve kriptografik çözümler merkezli projelere katkı sağlıyor ve liderlik ediyorum. Geliştirmenin her aşamasında hassasiyete, titizliğe ve profesyonelliğe değer veriyorum, her projenin yayınlanmadan önce en yüksek standartları karşılamasını sağlıyorum. Ana çalışmalarımın dışında yeni teknolojileri aktif olarak araştırıyor, uzmanlığımı geliştirmek ve yeniliği ileri taşımak için en güncel araştırmaları takip ediyorum.",
     "country": {
       "inline": "Türkiye'de",
       "name": "Türkiye",
@@ -38,13 +38,13 @@
       "largestCity": "En Büyük Şehir:",
       "largestCityValue": "İstanbul"
     },
-    "k9crypt": {
-      "category": "Güvenlik ve Gizlilik",
-      "description": "Güvenli mesajlaşma ve sıfır bilgi mimarisine odaklanan askeri düzeyde bir şifreleme platformudur. Veri saklamadan uçtan uca şifreleme sağlar.",
+    "pimatis": {
+      "category": "Açık Kaynak Topluluğu",
+      "description": "Pimatis, 2025'te kurulmuş Türkiye merkezli bir açık kaynak topluluğudur. Dijital çözümleri işbirliğiyle geliştirmeye odaklanır; açık kaynak, topluluk ve ortak üretimi öne çıkarır.",
       "mission": "Misyon:",
-      "missionValue": "Gizliliği temel bir insan hakkı olarak savunmak",
+      "missionValue": "Dijital çözümleri birlikte geliştirmek",
       "features": "Özellikler:",
-      "featuresValue": "Uçtan Uca Şifreleme, Sıfır Bilgi, Açık Kaynak, Kendini İmha Eden Mesajlar"
+      "featuresValue": "svelte-doctor, mavetis, tack, viko, aintan, bun-api-kit"
     }
   },
   "contributions": {
@@ -60,14 +60,28 @@
       "fri": "Cum"
     }
   },
+  "error": {
+    "notFound": "Sayfa bulunamadı",
+    "server": "Sunucu hatası",
+    "title": "Bir şeyler ters gitti",
+    "description": "Beklenmeyen bir hata oluştu",
+    "back": "Geri dön",
+    "home": "Ana sayfa"
+  },
+  "errors": {
+    "projects": "Projeler yüklenemedi",
+    "github": "GitHub katkıları yüklenemedi"
+  },
   "projects": {
     "title": "~/projeler",
     "seeAll": "Tüm Projeleri Gör",
     "empty": "Henüz proje yok.",
-    "paused": "Bu proje kısa bir mola veriyor"
+    "tooltip": "Bunlar tüm projeler değildir. Tüm projeler için GitHub'a bakabilirsiniz.",
+    "prev": "Önceki",
+    "next": "Sonraki",    "paused": "Bu proje kısa bir mola veriyor"
   },
   "project": {
-    "k9crypt": {
+    "pimatis": {
       "description": "Uçtan uca şifreleme ve sıfır bilgi mimarisiyle gizlilik odaklı mesajlaşma sunar. Veri saklamaz, açık kaynaklıdır, çapraz platform desteği sağlar, kendini imha eden mesajları destekler ve reklamsız bir deneyim sunar."
     },
     "svelteDoctor": {

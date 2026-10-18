@@ -32,6 +32,7 @@
 	"dependencies": {
 		"@svelte-i18n/core": "^3.0.1",
 		"@sveltejs/adapter-cloudflare": "^7.2.8",
-		"marked": "^18.0.5"
+		"marked": "^18.0.5",
+		"pocketbase": "^0.28.1"
 	}
 }
