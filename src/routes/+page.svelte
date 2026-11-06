@@ -3,20 +3,17 @@
     import Hero from "../components/Hero.svelte";
     import About from "../components/About.svelte";
     import Contributions from "../components/Contributions.svelte";
-    import Projects from "../components/Projects.svelte";
     import Contact from "../components/Contact.svelte";
     import Footer from "../components/Footer.svelte";
     import { useI18n } from "$lib/i18n";
-    import type { PageData } from "./$types";
+    import type { PageProps } from "./$types";
 
-    let { data }: { data: PageData } = $props();
+    let { data }: PageProps = $props();
     const { t } = useI18n();
-
-    const pageTitle = "Fatih Yılmaz";
 </script>
 
 <svelte:head>
-    <title>{pageTitle}</title>
+    <title>Fatih Yılmaz</title>
     <meta name="description" content={t("meta.description")} />
 </svelte:head>
 
@@ -26,7 +23,6 @@
         <Hero />
         <About />
         <Contributions contributions={data.contributions} errorMessage={data.contributionsError} />
-        <Projects />
         <Contact />
     </main>
     <Footer />

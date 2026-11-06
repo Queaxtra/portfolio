@@ -1,26 +1,16 @@
-<script lang="ts" module>
-	import type { LayoutProps } from './$types';
-
-	export type I18nContext = LayoutProps['data']['i18n'];
-</script>
-
 <script lang="ts">
 	import '../app.css';
 	import { onMount } from 'svelte';
     import { createI18nContext } from '$lib/i18n';
+	import type { LayoutProps } from './$types';
 
 	let { children, data }: LayoutProps = $props();
     createI18nContext(() => data.i18n);
 
 	onMount(() => {
-		const storedTheme = localStorage.getItem('theme');
-		if (storedTheme === 'dark') {
-			document.documentElement.classList.add('dark');
-			document.documentElement.classList.remove('light');
-		} else {
-			document.documentElement.classList.add('light');
-			document.documentElement.classList.remove('dark');
-		}
+		const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+		document.documentElement.classList.remove('light', 'dark');
+		document.documentElement.classList.add(theme);
 	});
 </script>
 

@@ -69,45 +69,7 @@
     "home": "Ana sayfa"
   },
   "errors": {
-    "projects": "Projeler yüklenemedi",
     "github": "GitHub katkıları yüklenemedi"
-  },
-  "projects": {
-    "title": "~/projeler",
-    "seeAll": "Tüm Projeleri Gör",
-    "empty": "Henüz proje yok.",
-    "tooltip": "Bunlar tüm projeler değildir. Tüm projeler için GitHub'a bakabilirsiniz.",
-    "prev": "Önceki",
-    "next": "Sonraki",    "paused": "Bu proje kısa bir mola veriyor"
-  },
-  "project": {
-    "pimatis": {
-      "description": "Uçtan uca şifreleme ve sıfır bilgi mimarisiyle gizlilik odaklı mesajlaşma sunar. Veri saklamaz, açık kaynaklıdır, çapraz platform desteği sağlar, kendini imha eden mesajları destekler ve reklamsız bir deneyim sunar."
-    },
-    "svelteDoctor": {
-      "description": "Svelte kod tabanınızdaki performans, doğruluk ve mimari sorunlarını teşhis edip düzeltir. 33 tanılama kuralı, yapay zeka destekli otomatik düzeltme, Svelte 4→5 geçişi, canlı izleme modu, bağımlılık sağlık kontrolleri. Sıfır konfigürasyon."
-    },
-    "raco": {
-      "description": "3 panelli TUI'ye sahip yüksek performanslı terminal tabanlı HTTP istemcisi. HTTP, WebSocket ve gRPC desteği. Dosya yükleme/indirme, fare ve klavye, pano, Git dostu JSON/YAML depolama, istek geçmişi, metrik paneli."
-    },
-    "zvelte": {
-      "description": "Shadcn UI, Tailwind CSS ve i18n ile SvelteKit projeleri oluşturmak için geliştirilmiş bir CLI aracıdır. Production-ready bir şablonu klonlar, package.json adını, açıklamasını ve sürümünü otomatik günceller. Bunx ile çalışır, global kurulum gerektirmez."
-    },
-    "zyla": {
-      "description": "Herkes için yapay zeka destekli anlık çeviri. Web'deki herhangi bir metni tek tıkla çevirin. Ücretsiz, sınırsız, hızlı. Web uygulaması ve tarayıcı eklentisi. Karakter sınırı veya kayıt zorunluluğu yok."
-    },
-    "pecinler": {
-      "description": "Konut, tarım ve ticari projeler için endüstriyel düzeyde tel çit üretimi ve montaj çözümleri. Galvanizli tel örgü, panel çit, bahçe çiti, dikenli tel, jiletli tel, beton direkler, Türkiye geneli gönderim ve profesyonel yerinde montaj hizmetleri."
-    },
-    "mavetis": {
-      "description": "Mavetis, Git iş akışları için tamamen yerel çalışan, ağ bağlantısı gerektirmeyen statik kod inceleme özellikli gizlilik odaklı bir güvenlik analiz aracıdır."
-    },
-    "tack": {
-      "description": "İnsanlar ve yapay zeka ajanları için bir masaüstü görev yöneticisi. Gereksiz şey yok, şişkinlik yok. Sadece görevler, projeler ve uygulama ile aynı veritabanını konuşan bir komut satırı aracı."
-    },
-    "zeltatv": {
-      "description": "Electron, SvelteKit ve HLS.js ile oluşturulmuş çapraz platform bir masaüstü IPTV oynatıcısı. URL'lerden veya yerel dosyalardan M3U/M3U8 oynatma listelerini yükleyin, kanalları tarayın ve temiz, minimal bir arayüzle canlı TV yayınını izleyin."
-    }
   },
   "contact": {
     "title": "~/iletişim"
